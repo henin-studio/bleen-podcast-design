@@ -1,0 +1,28 @@
+# Audio files (too large for git)
+*.mp3
+*.wav
+*.ogg
+*.flac
+
+# Source files
+*.psd
+*.ai
+*.sketch
+
+# LinkedIn page saves
+*LinkedIn_files/
+
+# Saved web pages
+*.html.html
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Exports (generated)
+exports/
+propositions/
+*_files/

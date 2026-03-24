@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bleen — Vélotaf</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/bleen-icone.svg">
+  <link rel="stylesheet" href="/assets/bleen-tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald: var(--brand-500);
+      --dark-green: var(--dark-900);
+      --black: var(--neutral-900);
+      --gray-50: var(--neutral-50);
+      --gray-100: var(--neutral-50);
+      --gray-200: var(--neutral-200);
+      --gray-400: var(--neutral-500);
+      --gray-500: var(--neutral-500);
+      --font: var(--font-primary);
+      --radius: var(--radius-sm);
+
+      /* Velotaf brand */
+      --velo-red: #ff2a25;
+      --velo-orange: #F06A42;
+      --velo-navy: #2E4057;
+      --velo-warm: #F5F0EB;
+      --velo-gold: #F5A623;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--gray-50);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Header ── */
+    .header {
+      background: #1A1010;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 28px; }
+
+    .back {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.15s;
+    }
+
+    .back:hover { color: var(--velo-red); }
+    .back svg { vertical-align: -2px; margin-right: 4px; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1A1010, #2E1810);
+      padding: 0 48px 48px;
+      border-bottom: 3px solid var(--velo-red);
+    }
+
+    .hero h1 {
+      font-family: 'Knewave', cursive;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span {
+      color: var(--velo-red);
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px 60px;
+    }
+
+    /* ── Status badge ── */
+    .status {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(233,75,53,0.12);
+      color: var(--velo-red);
+      margin-bottom: 24px;
+    }
+
+    /* ── Section nav ── */
+    .section-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 48px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .section-nav a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-500);
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .section-nav a:hover { color: var(--black); }
+
+    .section-nav a.active {
+      color: var(--black);
+      border-bottom-color: var(--velo-red);
+    }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 10px;
+      background: var(--gray-100);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray-500);
+    }
+
+    .section-nav a.active .nav-badge {
+      background: rgba(233,75,53,0.12);
+      color: var(--velo-red);
+    }
+
+    /* ── Section scaffolding ── */
+    .section-anchor {
+      scroll-margin-top: 56px;
+      padding-top: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .section-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 12px;
+      background: var(--velo-red);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .section-separator {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 16px 0 0;
+    }
+
+    /* ── Info grid ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .info-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .info-card p, .info-card li {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-card li { padding: 4px 0; }
+
+    .info-card li a {
+      color: var(--velo-red);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .info-card li a:hover { color: var(--velo-navy); }
+
+    /* ── Covers grid ── */
+    .covers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .design-card {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .design-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .design-card.selected {
+      border-color: var(--velo-red);
+      box-shadow: 0 0 0 3px rgba(233,75,53,0.2);
+    }
+
+    .design-preview {
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+
+    .design-body {
+      padding: 16px 20px 20px;
+      position: relative;
+    }
+
+    .design-body h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .design-body p {
+      font-size: 11px;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    .design-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--velo-red);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* ── Set label (inside covers-grid flow) ── */
+    .set-label {
+      grid-column: 1 / -1;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-400);
+      padding: 4px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .set-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    /* ── Cover inner (the actual podcast cover square) ── */
+    .cover-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 32px 48px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray-400);
+      border-top: 1px solid var(--gray-200);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .header, .hero { padding-left: 24px; padding-right: 24px; }
+      .section-nav { padding: 0 16px; }
+      .container { padding: 24px 16px 40px; }
+      .info-grid, .covers-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .covers-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="/index.html" class="logo"><img src="/assets/logo/bleen-logo-blanc.svg" alt="Bleen" height="28"></a>
+    <a href="/projects/podcast_design/" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Podcast Design
+    </a>
+  </header>
+
+  <section class="hero">
+    <h1>VÉ<span>LO</span>TAF</h1>
+    <p>Le vélo n'est pas un simple objet. Podcast sociétal sur la mobilité douce, l'urbanisme et l'écologie.</p>
+  </section>
+
+  <nav class="section-nav" id="mainNav">
+    <a href="#contexte">Contexte</a>
+    <a href="#palette">Palette <span class="nav-badge">4</span></a>
+    <a href="#cover-v3">Cover V3 <span class="nav-badge">8</span></a>
+  </nav>
+
+  <div class="container" style="max-width:1200px;">
+
+    <span class="status">Design en cours</span>
+
+    <!-- ════════════════ CONTEXTE ════════════════ -->
+    <div id="contexte" class="section-anchor">
+      <div class="section-header">
+        <h2>Contexte</h2>
+      </div>
+      <p class="section-desc">Le podcast, son identité, ses références.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Le podcast</h3>
+        <p>Podcast sociétal produit par Bleen, né du mouvement Two Wheel Tuesday (2WT, WEF). Le vélo comme prisme pour parler urbanisme, écologie, inégalités, rapport au temps et à l'espace. 102+ épisodes, 3 saisons, noté 4.9/5 sur Apple Podcasts.</p>
+      </div>
+      <div class="info-card">
+        <h3>Positionnement</h3>
+        <p>Pas un podcast sportif. Engagé mais accessible, ni militant ni culpabilisant. Pour les velotafeurs francophones (FR + BE), urbains, 25–45 ans, sensibilité écolo/société. Un mec normal sur son vélo — pas un athlète.</p>
+      </div>
+      <div class="info-card">
+        <h3>Liens</h3>
+        <ul>
+          <li><a href="https://velotaf.studiomano.fr" target="_blank">velotaf.studiomano.fr</a> — site officiel</li>
+          <li><a href="https://open.spotify.com/show/6K3GRKLJG4UDSqqjg9Qpux" target="_blank">Spotify</a> — 4.8/5 · 23 avis</li>
+          <li><a href="https://podcasts.apple.com/fr/podcast/vélotaf/id1576204336" target="_blank">Apple Podcasts</a> — 4.9/5 · 13 avis</li>
+          <li><a href="https://www.instagram.com/velotaf.podcast/" target="_blank">@velotaf.podcast</a> — Instagram</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-separator">
+
+    <!-- ════════════════ PALETTE ════════════════ -->
+    <div id="palette" class="section-anchor">
+      <div class="section-header">
+        <h2>Palette</h2>
+        <span class="section-count">4</span>
+      </div>
+      <p class="section-desc">Couleurs fondamentales de l'identité Vélotaf.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:40px;">
+
+      <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="height:72px;background:#ff2a25;"></div>
+        <div style="padding:14px 16px;">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Velotaf Red-Orange <span style="font-size:11px;color:#6B7280;font-weight:400;">— signature</span></div>
+          <div style="font-size:12px;color:#6B7280;">Fond dominant, identité, CTA primaire. L'orange-rouge qui définit la marque.</div>
+          <div style="font-size:11px;color:#9CA3AF;margin-top:6px;font-family:monospace;">#ff2a25</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="height:72px;background:#F06A42;"></div>
+        <div style="padding:14px 16px;">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Light Orange <span style="font-size:11px;color:#6B7280;font-weight:400;">— signature claire</span></div>
+          <div style="font-size:12px;color:#6B7280;">Hover, dégradé, zones secondaires. Complément chaud de la couleur signature.</div>
+          <div style="font-size:11px;color:#9CA3AF;margin-top:6px;font-family:monospace;">#F06A42</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="height:72px;background:#2E4057;"></div>
+        <div style="padding:14px 16px;">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Bleu Marine <span style="font-size:11px;color:#6B7280;font-weight:400;">— secondaire</span></div>
+          <div style="font-size:12px;color:#6B7280;">Seule note froide. Contraste avec l'orange, représente le blazer du personnage.</div>
+          <div style="font-size:11px;color:#9CA3AF;margin-top:6px;font-family:monospace;">#2E4057</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="height:72px;background:#F5F0EB;border-bottom:1px solid #eee;"></div>
+        <div style="padding:14px 16px;">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Blanc Cassé <span style="font-size:11px;color:#6B7280;font-weight:400;">— warm white</span></div>
+          <div style="font-size:12px;color:#6B7280;">Légèrement chaud, pas blanc pur. Fond alternatif, chemise du personnage.</div>
+          <div style="font-size:11px;color:#9CA3AF;margin-top:6px;font-family:monospace;">#F5F0EB</div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="section-separator">
+
+    <!-- ════════════════ COVER V3 ════════════════ -->
+    <div id="cover-v3" class="section-anchor">
+      <div class="section-header">
+        <h2>Cover V3</h2>
+        <span class="section-count">8</span>
+      </div>
+      <p class="section-desc">8 propositions en deux sets de 4. Gradients signature Vélotaf et déclinaisons Bleen.</p>
+    </div>
+
+    <div class="covers-grid">
+
+      <!-- ── Set 1: Orange Signature ── -->
+      <div class="set-label">Orange Signature</div>
+
+      <!-- V1: Orange → Navy, complet -->
+      <div class="design-card" onclick="selectCover(this,'v3-1')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #ff2a25, #2E4057);">
+            <!-- Vignette -->
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <!-- Grain -->
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vt1a" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vt1a)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vt1b" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vt1b)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <!-- Title area -->
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(38px,10vw,72px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(9px,2vw,14px);color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.02em;">Le vélo n'est pas un simple objet</span>
+            </div>
+            <!-- Person image -->
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <!-- Bleen text bottom -->
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">1</div>
+          <h3>Orange → Navy — Complet</h3>
+          <p>Dégradé signature orange-rouge vers bleu marine. Variante avec sous-titre.</p>
+        </div>
+      </div>
+
+      <!-- V2: Orange → Navy, titre court -->
+      <div class="design-card" onclick="selectCover(this,'v3-2')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #ff2a25, #2E4057);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(48px,13vw,96px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">2</div>
+          <h3>Orange → Navy — Titre court</h3>
+          <p>Même dégradé, titre solo agrandi pour plus d'impact. Sans sous-titre.</p>
+        </div>
+      </div>
+
+      <!-- V3: Orange → Gold, complet -->
+      <div class="design-card" onclick="selectCover(this,'v3-3')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #ff2a25, #ff8348, #ff8d49);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(38px,10vw,72px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(9px,2vw,14px);color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.02em;">Le vélo n'est pas un simple objet</span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">3</div>
+          <h3>Orange → Gold — Complet</h3>
+          <p>Triptyque chaud orange → orange clair → or doré. Chaleureux, solaire.</p>
+        </div>
+      </div>
+
+      <!-- V4: Orange → Gold, titre court -->
+      <div class="design-card" onclick="selectCover(this,'v3-4')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #ff2a25, #ff8348, #ff8d49);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(48px,13vw,96px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">4</div>
+          <h3>Orange → Gold — Titre court</h3>
+          <p>Version titre seul, fonte agrandie. Solaire, dynamique.</p>
+        </div>
+      </div>
+
+      <!-- ── Set 2: Gradient Bleen ── -->
+      <div class="set-label">Gradient Bleen</div>
+
+      <!-- V5: Violet → Orange, complet -->
+      <div class="design-card" onclick="selectCover(this,'v3-5')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #8355eb, #ff2a25);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(38px,10vw,72px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(9px,2vw,14px);color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.02em;">Le vélo n'est pas un simple objet</span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">5</div>
+          <h3>Violet → Orange — Complet</h3>
+          <p>Dégradé Bleen violet vers orange signature. Identité agence bien visible.</p>
+        </div>
+      </div>
+
+      <!-- V6: Violet → Orange, titre court -->
+      <div class="design-card" onclick="selectCover(this,'v3-6')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #8355eb, #ff2a25);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(48px,13vw,96px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">6</div>
+          <h3>Violet → Orange — Titre court</h3>
+          <p>Version titre solo, plus d'espace, lecture immédiate.</p>
+        </div>
+      </div>
+
+      <!-- V7: Navy → Orange, complet -->
+      <div class="design-card" onclick="selectCover(this,'v3-7')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #2E4057, #ff2a25);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(38px,10vw,72px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(9px,2vw,14px);color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:0.02em;">Le vélo n'est pas un simple objet</span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">7</div>
+          <h3>Navy → Orange — Complet</h3>
+          <p>Couleurs internes de la palette Vélotaf inversées. Froid → chaud, sérieux → énergie.</p>
+        </div>
+      </div>
+
+      <!-- V8: Navy → Orange, titre court -->
+      <div class="design-card" onclick="selectCover(this,'v3-8')">
+        <div class="design-preview">
+          <div class="cover-inner" style="background:linear-gradient(135deg, #2E4057, #ff2a25);">
+            <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse 100% 40% at 50% 20%, rgba(0,0,0,0.3) 0%, transparent 70%), radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+            <div style="position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+            <div style="position:absolute;top:5%;left:5%;color:#FFFFFF;z-index:10;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:32px;height:auto;"><mask id="vtXa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXa)"><path d="M200 180.002C200 235.227 155.222 280 99.9978 280C44.7733 280 0 235.227 0 180.002V80H99.9978C155.222 80 200 124.778 200 180.002Z" fill="currentColor"/></g><mask id="vtXb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#vtXb)"><path d="M160 80C160 124.191 124.186 160 80 160C35.8092 160 0 124.191 0 80V0H80C124.186 0 160 35.8135 160 80Z" fill="currentColor"/></g></svg></div>
+            <div style="position:absolute;top:7%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;">
+              <span style="font-family:'Knewave',cursive;font-size:clamp(48px,13vw,96px);letter-spacing:-0.04em;color:white;-webkit-text-stroke:3px rgba(0,0,0,0.6);paint-order:stroke fill;text-shadow:-2px -2px 0 rgba(0,0,0,0.5),2px -2px 0 rgba(0,0,0,0.5),-2px 2px 0 rgba(0,0,0,0.5),2px 2px 0 rgba(0,0,0,0.5),0 4px 12px rgba(0,0,0,0.7);display:inline-flex;align-items:center;"><span style="display:inline-block;transform:translateY(-0.15em) rotate(-3deg);">V</span><span style="display:inline-block;transform:translateY(0.12em) rotate(2deg);">É</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">L</span><span style="display:inline-block;transform:translateY(0.14em) rotate(3deg);">O</span><span style="display:inline-block;transform:translateY(-0.12em) rotate(-2deg);">T</span><span style="display:inline-block;transform:translateY(0.13em) rotate(3deg);">A</span><span style="display:inline-block;transform:translateY(-0.1em) rotate(-2deg);">F</span></span>
+            </div>
+            <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:8;width:72%;max-width:320px;">
+              <img src="images/nobg/velotaf.png" alt="Vélotaf" style="width:120%;height:auto;object-fit:contain;position:absolute;bottom:10%;left:3%;z-index:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)) drop-shadow(0 16px 32px rgba(0,0,0,0.15));">
+            </div>
+            <div style="position:absolute;bottom:6%;right:6%;z-index:10;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:48px;height:auto;"><path d="M270 160.699V70H288.929V125.074C296.574 116.603 308.052 111.014 320.671 111.014C349.158 111.014 369.623 132.004 369.623 160.699C369.623 187.854 348.205 210 319.906 210C291.607 210 270 188.625 270 160.699ZM350.689 160.51C350.689 143.373 337.304 129.123 319.906 129.123C302.507 129.123 288.929 143.373 288.929 160.51C288.929 177.647 302.313 192.092 319.906 192.092C337.499 192.092 350.689 177.842 350.689 160.51Z" fill="rgba(255,255,255,0.6)"/><path d="M401.336 70V207.688H382.407V70H401.336Z" fill="rgba(255,255,255,0.6)"/><path d="M414.12 159.929C414.12 132.774 433.431 110.628 461.542 110.628C489.653 110.628 507.434 131.233 507.434 157.617V165.317H432.478C434.579 181.494 446.816 192.857 463.643 192.857C475.115 192.857 485.438 187.848 490.989 177.451L505.521 184.961C497.298 201.138 482.195 209.804 463.838 209.804C435.344 209.804 414.12 189.004 414.12 159.929ZM488.499 152.999C487.734 137.979 476.833 127.771 461.348 127.771C445.862 127.771 435.15 138.939 433.243 152.999H488.505H488.499Z" fill="rgba(255,255,255,0.6)"/><path d="M520.212 159.929C520.212 132.774 539.523 110.628 567.634 110.628C595.745 110.628 613.526 131.233 613.526 157.617V165.317H538.57C540.671 181.494 552.908 192.857 569.735 192.857C581.207 192.857 591.536 187.848 597.081 177.451L611.613 184.961C603.39 201.138 588.287 209.804 569.929 209.804C541.442 209.804 520.218 189.004 520.218 159.929H520.212ZM594.591 152.999C593.826 137.979 582.925 127.771 567.44 127.771C551.954 127.771 541.242 138.939 539.335 152.999H594.597H594.591Z" fill="rgba(255,255,255,0.6)"/><path d="M645.238 162.051V207.688H626.31V160.124C626.31 132.584 642.56 111.02 672.772 111.02C702.984 111.02 720 132.59 720 159.935V207.694H701.071V162.247C701.071 144.529 691.513 129.318 672.772 129.318C654.032 129.318 645.238 144.529 645.238 162.057V162.051Z" fill="rgba(255,255,255,0.6)"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="design-body">
+          <div class="design-num">8</div>
+          <h3>Navy → Orange — Titre court</h3>
+          <p>Version titre seul. Le contraste froid/chaud ressort encore plus.</p>
+        </div>
+      </div>
+
+    </div><!-- /covers-grid -->
+
+  </div><!-- /container -->
+
+  <footer class="footer">
+    Bleen Agency — Podcast Design · Vélotaf
+  </footer>
+
+  <script>
+    function selectCover(el, id) {
+      document.querySelectorAll('.design-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    // Sticky nav active state
+    const sections = document.querySelectorAll('.section-anchor');
+    const navLinks = document.querySelectorAll('.section-nav a[href^="#"]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

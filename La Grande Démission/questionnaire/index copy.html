@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brief Podcast Design — Bleen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark-green: #0D2B1E;
+      --dark-green-mid: #143828;
+      --emerald: #1EE8A0;
+      --emerald-dark: #12c983;
+      --white: #FFFFFF;
+      --bg: #F9FAFB;
+      --bg-section: #FFFFFF;
+      --text: #1A1A1A;
+      --text-muted: #6B7280;
+      --border: #E5E7EB;
+      --border-focus: #1EE8A0;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* ─── Header ─── */
+    .site-header {
+      background: var(--dark-green);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .header-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--emerald);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      text-align: right;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      background: var(--dark-green);
+      padding: 56px 24px 48px;
+      text-align: center;
+      border-bottom: 3px solid var(--emerald);
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--emerald);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* ─── Progress bar (sticky, inside header) ─── */
+    .progress-wrap {
+      background: var(--dark-green);
+      padding: 0;
+      position: sticky;
+      top: 60px;
+      z-index: 99;
+    }
+
+    .progress-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 8px 24px 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .progress-bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--emerald);
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.4s ease;
+      box-shadow: 0 0 8px rgba(30, 232, 160, 0.4);
+    }
+
+    .progress-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--emerald);
+      white-space: nowrap;
+      min-width: 36px;
+      text-align: right;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Main layout ─── */
+    .main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ─── Form sections ─── */
+    .form-section {
+      background: var(--bg-section);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      background: var(--dark-green);
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-number {
+      width: 32px;
+      height: 32px;
+      background: var(--emerald);
+      color: var(--dark-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .section-body {
+      padding: 28px;
+    }
+
+    fieldset {
+      border: none;
+    }
+
+    legend {
+      display: none;
+    }
+
+    /* ─── Field groups ─── */
+    .field-group {
+      margin-bottom: 24px;
+    }
+
+    .field-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .field-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    label .required {
+      color: var(--emerald-dark);
+      margin-left: 3px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 400;
+      margin-top: -4px;
+    }
+
+    /* ─── Inputs ─── */
+    input[type="text"],
+    input[type="url"],
+    input[type="date"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="url"]:focus,
+    input[type="date"]:focus,
+    input[type="email"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(30, 232, 160, 0.12);
+    }
+
+    input[type="text"]::placeholder,
+    textarea::placeholder {
+      color: #C0C8D2;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.6;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    /* ─── Radio & Checkboxes ─── */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-group.inline,
+    .checkbox-group.inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .radio-option,
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"],
+    .checkbox-option input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      background: var(--white);
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+
+    .checkbox-option input[type="checkbox"] {
+      border-radius: 4px;
+    }
+
+    .radio-option input[type="radio"]:checked,
+    .checkbox-option input[type="checkbox"]:checked {
+      background: var(--emerald);
+      border-color: var(--emerald);
+    }
+
+    .radio-option input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--dark-green);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .checkbox-option input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 7px;
+      border-left: 2px solid var(--dark-green);
+      border-bottom: 2px solid var(--dark-green);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .radio-option label,
+    .checkbox-option label {
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* ─── Section 10 — Le Signal ─── */
+    .signal-section .section-header {
+      background: #071A11;
+    }
+
+    .signal-body {
+      background: var(--dark-green);
+      padding: 36px 28px;
+    }
+
+    .signal-question {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .signal-question span {
+      color: var(--emerald);
+    }
+
+    .signal-context {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .signal-body input[type="text"] {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.15);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 18px;
+    }
+
+    .signal-body input[type="text"]::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .signal-body input[type="text"]:focus {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px rgba(30, 232, 160, 0.15);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ─── Submit ─── */
+    .submit-wrap {
+      text-align: center;
+      padding: 12px 0 0;
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--emerald);
+      color: var(--dark-green);
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-submit:hover {
+      background: var(--emerald-dark);
+      box-shadow: 0 6px 24px rgba(30,232,160,0.3);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    .btn-submit svg {
+      flex-shrink: 0;
+    }
+
+    .submit-note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      background: var(--dark-green);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Merci page ─── */
+    .merci-page {
+      display: none;
+      min-height: 60vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 60px 24px;
+    }
+
+    .merci-page.visible {
+      display: flex;
+    }
+
+    .merci-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--emerald);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+
+    .merci-icon svg {
+      color: var(--dark-green);
+    }
+
+    .merci-page h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark-green);
+      margin-bottom: 12px;
+    }
+
+    .merci-page p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto 32px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--dark-green);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--emerald);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-back:hover {
+      opacity: 0.7;
+    }
+
+    /* ─── Form wrapper for show/hide ─── */
+    .form-content {
+      display: block;
+    }
+
+    .form-content.hidden {
+      display: none;
+    }
+
+    /* ─── Divider ─── */
+    .field-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    /* ─── Focus visible ─── */
+    :focus-visible {
+      outline: 2px solid var(--emerald);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Bleen — Accueil">bleen</a>
+      <div class="header-title">Podcast Design Brief</div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Brief <span>Podcast Design</span></h1>
+    <p>10 sections pour clarifier la vision du podcast et créer une identité visuelle qui lui ressemble vraiment.</p>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap" id="progress-wrap" aria-hidden="true">
+    <div class="progress-inner">
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0%</span>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="main" id="main">
+
+    <!-- Page de remerciement -->
+    <div class="merci-page" id="merci-page" role="status" aria-live="polite">
+      <div class="merci-icon" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h2>Brief envoyé !</h2>
+      <p>Le brief a été envoyé. L'équipe Bleen va le lire et prendre contact.</p>
+      <a href="#" class="btn-back" id="back-to-form">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Revenir au formulaire
+      </a>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="form-content" id="form-content">
+      <form
+        action="https://formspree.io/f/xdawyorp"
+        method="POST"
+        id="brief-form"
+        novalidate
+        aria-label="Formulaire brief podcast"
+      >
+        <!-- Champs cachés Formspree -->
+        <input type="hidden" name="_subject" value="Nouveau Brief Podcast — Bleen">
+        <input type="hidden" name="_next" id="next-url">
+
+        <!-- ── Section 0 — Prénom ── -->
+        <section class="form-section" aria-labelledby="s0-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">👋</div>
+            <div>
+              <div class="section-title" id="s0-title">Vous</div>
+              <div class="section-subtitle">Avant de commencer</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Identité</legend>
+              <div class="field-group">
+                <label for="prenom">Prénom</label>
+                <input
+                  type="text"
+                  id="prenom"
+                  name="prenom"
+                  placeholder="Comment vous appelez-vous ?"
+                  required
+                  autocomplete="given-name"
+                >
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 1 — WHY ── -->
+        <section class="form-section" aria-labelledby="s2-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">1</div>
+            <div>
+              <div class="section-title" id="s2-title">WHY — Pourquoi ce podcast</div>
+              <div class="section-subtitle">La raison d'être profonde</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Pourquoi ce podcast</legend>
+
+              <div class="field-group">
+                <label for="raison-etre">Quelle est la raison d'être de ce podcast ?</label>
+                <p class="hint">Qu'est-ce qui manque dans le paysage actuel ?</p>
+                <textarea
+                  id="raison-etre"
+                  name="raison_etre"
+                  placeholder="Qu'est-ce qui manque dans le paysage actuel ?"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="probleme-auditeur">Quel problème concret résout-il pour l'auditeur ?</label>
+                <textarea
+                  id="probleme-auditeur"
+                  name="probleme_auditeur"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label>Vision à 3 ans</label>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="vision-serie" name="vision_3ans" value="Série limitée < 20 épisodes">
+                    <label for="vision-serie">Série limitée &lt; 20 épisodes</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="vision-long" name="vision_3ans" value="Projet long terme">
+                    <label for="vision-long">Projet long terme</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="vision-indecis" name="vision_3ans" value="Pas encore décidé">
+                    <label for="vision-indecis">Pas encore décidé</label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 2 — WHO ── -->
+        <section class="form-section" aria-labelledby="s3-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">2</div>
+            <div>
+              <div class="section-title" id="s3-title">WHO — Pour qui</div>
+              <div class="section-subtitle">Définir l'auditeur idéal avec précision</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Pour qui est ce podcast</legend>
+
+              <div class="field-group">
+                <label for="auditeur-ideal">Qui est l'auditeur idéal ? <span class="required" aria-hidden="true">*</span></label>
+                <p class="hint">Âge, métier, situation de vie</p>
+                <textarea
+                  id="auditeur-ideal"
+                  name="auditeur_ideal"
+                  required
+                  aria-required="true"
+                  placeholder="ex: Femme 30-45 ans, en reconversion professionnelle, urbaine..."
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="pas-la-cible">Qui n'est PAS la cible ?</label>
+                <textarea
+                  id="pas-la-cible"
+                  name="pas_la_cible"
+                  placeholder="ex: Les étudiants sans expérience pro, les experts du domaine..."
+                  rows="2"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label>Où écoute-t-on physiquement ce podcast ?</label>
+                <div class="checkbox-group">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ecoute-metro" name="ecoute_lieu" value="Métro/transports">
+                    <label for="ecoute-metro">Métro / transports</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ecoute-voiture" name="ecoute_lieu" value="Voiture">
+                    <label for="ecoute-voiture">Voiture</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ecoute-sport" name="ecoute_lieu" value="En marchant/courant">
+                    <label for="ecoute-sport">En marchant / courant</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ecoute-maison" name="ecoute_lieu" value="À la maison">
+                    <label for="ecoute-maison">À la maison</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ecoute-bureau" name="ecoute_lieu" value="Au bureau">
+                    <label for="ecoute-bureau">Au bureau</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ecoute-autre" name="ecoute_lieu" value="Autre">
+                    <label for="ecoute-autre">Autre</label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 3 — WHAT ── -->
+        <section class="form-section" aria-labelledby="s4-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">3</div>
+            <div>
+              <div class="section-title" id="s4-title">WHAT — Le contenu</div>
+              <div class="section-subtitle">Format, rythme, ton</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Le contenu du podcast</legend>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label>Format</label>
+                  <div class="radio-group">
+                    <div class="radio-option">
+                      <input type="radio" id="fmt-interview" name="format" value="Interview">
+                      <label for="fmt-interview">Interview</label>
+                    </div>
+                    <div class="radio-option">
+                      <input type="radio" id="fmt-solo" name="format" value="Solo/narration">
+                      <label for="fmt-solo">Solo / narration</label>
+                    </div>
+                    <div class="radio-option">
+                      <input type="radio" id="fmt-panel" name="format" value="Panel">
+                      <label for="fmt-panel">Panel</label>
+                    </div>
+                    <div class="radio-option">
+                      <input type="radio" id="fmt-docu" name="format" value="Documentaire">
+                      <label for="fmt-docu">Documentaire</label>
+                    </div>
+                    <div class="radio-option">
+                      <input type="radio" id="fmt-mix" name="format" value="Mix">
+                      <label for="fmt-mix">Mix</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="field-group">
+                    <label for="duree">Durée d'un épisode</label>
+                    <select id="duree" name="duree_episode">
+                      <option value="">Choisir...</option>
+                      <option value="< 15 min">&lt; 15 min</option>
+                      <option value="15-30 min">15 – 30 min</option>
+                      <option value="30-60 min">30 – 60 min</option>
+                      <option value="> 1h">&gt; 1 heure</option>
+                    </select>
+                  </div>
+
+                  <div class="field-group">
+                    <label for="frequence">Fréquence</label>
+                    <select id="frequence" name="frequence">
+                      <option value="">Choisir...</option>
+                      <option value="Hebdomadaire">Hebdomadaire</option>
+                      <option value="Bimensuel">Bimensuel</option>
+                      <option value="Mensuel">Mensuel</option>
+                      <option value="Irrégulier">Irrégulier</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-divider"></div>
+
+              <div class="field-group">
+                <label>Ton <span class="hint" style="display:inline; margin:0;">(plusieurs choix possibles)</span></label>
+                <div class="checkbox-group inline" style="margin-top: 8px;">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ton-serieux" name="ton" value="Sérieux">
+                    <label for="ton-serieux">Sérieux</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ton-leger" name="ton" value="Léger">
+                    <label for="ton-leger">Léger</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ton-intime" name="ton" value="Intime">
+                    <label for="ton-intime">Intime</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ton-journa" name="ton" value="Journalistique">
+                    <label for="ton-journa">Journalistique</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ton-engage" name="ton" value="Engagé">
+                    <label for="ton-engage">Engagé</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="ton-humour" name="ton" value="Humoristique">
+                    <label for="ton-humour">Humoristique</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label>Le titre est-il définitif ?</label>
+                <div class="radio-group inline" style="margin-top: 8px;">
+                  <div class="radio-option">
+                    <input type="radio" id="titre-oui" name="titre_definitif" value="Oui">
+                    <label for="titre-oui">Oui, définitif</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="titre-non" name="titre_definitif" value="Non, en réflexion">
+                    <label for="titre-non">Non, en réflexion</label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 4 — PRÉFÉRENCES VISUELLES ── -->
+        <section class="form-section" aria-labelledby="s5-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">4</div>
+            <div>
+              <div class="section-title" id="s5-title">Préférences visuelles</div>
+              <div class="section-subtitle">Goûts, envies, attirances visuelles</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Préférences visuelles</legend>
+
+              <div class="field-group">
+                <label for="couleurs-pref">Quelles couleurs pour ce podcast ?</label>
+                <input type="text" id="couleurs-pref" name="couleurs_preferences" placeholder="ex: tons sombres, chauds, terreux, bleu nuit, cuivre...">
+              </div>
+
+              <div class="field-group">
+                <label for="style-pref">Quel style visuel parle le plus ?</label>
+                <div class="checkbox-group">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="style-minimaliste" name="style_visuel" value="Minimaliste / épuré">
+                    <label for="style-minimaliste">Minimaliste / épuré</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="style-editorial" name="style_visuel" value="Éditorial / magazine">
+                    <label for="style-editorial">Éditorial / magazine</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="style-photo" name="style_visuel" value="Photographique">
+                    <label for="style-photo">Photographique</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="style-illustration" name="style_visuel" value="Illustré / graphique">
+                    <label for="style-illustration">Illustré / graphique</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="style-typo" name="style_visuel" value="Typographique (titre seul)">
+                    <label for="style-typo">Typographique (titre seul)</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="style-brut" name="style_visuel" value="Brut / artisanal">
+                    <label for="style-brut">Brut / artisanal</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="photo-pref">Si photo sur la cover, quel type ?</label>
+                <div class="checkbox-group">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="photo-portrait" name="photo_type" value="Portrait (visage)">
+                    <label for="photo-portrait">Portrait (visage)</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="photo-silhouette" name="photo_type" value="Silhouette / de dos">
+                    <label for="photo-silhouette">Silhouette / de dos</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="photo-paysage" name="photo_type" value="Paysage / nature">
+                    <label for="photo-paysage">Paysage / nature</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="photo-objet" name="photo_type" value="Objet / gros plan">
+                    <label for="photo-objet">Objet / gros plan (mains, outils, pain...)</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="photo-aucune" name="photo_type" value="Pas de photo">
+                    <label for="photo-aucune">Pas de photo — typo ou graphique pur</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="ambiance-pref">Une image, un lieu ou une scène qui représente l'ambiance idéale ?</label>
+                <textarea id="ambiance-pref" name="ambiance_ideale" rows="2" placeholder="ex: un atelier de menuiserie au coucher du soleil, une conversation autour d'un café..."></textarea>
+              </div>
+
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 5 — POSITIONNEMENT ── -->
+        <section class="form-section" aria-labelledby="s6-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">5</div>
+            <div>
+              <div class="section-title" id="s6-title">Positionnement</div>
+              <div class="section-subtitle">Références et différenciation</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Positionnement et références</legend>
+
+              <div class="field-group">
+                <label for="ref-admirees">3 podcasts admirés visuellement</label>
+                <textarea
+                  id="ref-admirees"
+                  name="references_admirees"
+                  placeholder="Noms + ce qui plaît dans leur identité visuelle"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="ref-repoussoirs">3 podcasts / covers jugées insupportables</label>
+                <textarea
+                  id="ref-repoussoirs"
+                  name="references_repoussoirs"
+                  placeholder="Noms + pourquoi ça ne convient pas"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="differentiation">Qu'est-ce qui différencie ce podcast ?</label>
+                <textarea
+                  id="differentiation"
+                  name="differentiation"
+                  rows="3"
+                ></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 6 — ÉMOTION ── -->
+        <section class="form-section" aria-labelledby="s8-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">6</div>
+            <div>
+              <div class="section-title" id="s8-title">Émotion & Sensation</div>
+              <div class="section-subtitle">L'univers sensoriel et émotionnel — c'est ici que tout se joue</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Univers émotionnel du podcast</legend>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="mots-positifs">3 mots qui décrivent l'ambiance <span class="required" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="mots-positifs"
+                    name="mots_positifs"
+                    required
+                    aria-required="true"
+                    placeholder="ex: intime, courageux, ancré"
+                  >
+                </div>
+                <div class="field-group">
+                  <label for="mots-negatifs">3 mots à NE PAS associer <span class="required" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="mots-negatifs"
+                    name="mots_negatifs"
+                    required
+                    aria-required="true"
+                    placeholder="ex: corporate, coaching, inspirationnel"
+                  >
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="temperature">Quelle température a le podcast ?</label>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="temp-froid" name="temperature" value="Froid — clinique, analytique">
+                    <label for="temp-froid">Froid — clinique, analytique</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="temp-frais" name="temperature" value="Frais — posé, objectif">
+                    <label for="temp-frais">Frais — posé, objectif</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="temp-tiede" name="temperature" value="Tiède — réconfortant, accessible">
+                    <label for="temp-tiede">Tiède — réconfortant, accessible</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="temp-chaud" name="temperature" value="Chaud — intime, engagé">
+                    <label for="temp-chaud">Chaud — intime, engagé</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="temp-brulant" name="temperature" value="Brûlant — urgent, viscéral">
+                    <label for="temp-brulant">Brûlant — urgent, viscéral</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="lieu-analogie">Si le podcast était un lieu, ce serait…</label>
+                <input
+                  type="text"
+                  id="lieu-analogie"
+                  name="lieu_analogie"
+                  placeholder="ex: un atelier avec de la lumière chaude, un café calme le matin, une forêt en hiver..."
+                >
+              </div>
+
+              <div class="field-group">
+                <label for="heure-jour">Quelle heure du jour représente le mieux le podcast ?</label>
+                <input
+                  type="text"
+                  id="heure-jour"
+                  name="heure_du_jour"
+                  placeholder="ex: 5h du matin (le silence avant la décision), 18h (la fin de journée, pour toujours)..."
+                >
+              </div>
+
+              <div class="field-group">
+                <label for="personne-soiree">Si le podcast était une personne à une soirée, comment serait-elle habillée et où se tiendrait-elle ?</label>
+                <textarea
+                  id="personne-soiree"
+                  name="personne_soiree"
+                  placeholder="ex: Veste de travail un peu usée, baskets propres. Pas au centre, mais les gens viennent à lui..."
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="objet-physique">Un objet physique qui résume le podcast ?</label>
+                  <input
+                    type="text"
+                    id="objet-physique"
+                  name="objet_physique"
+                  placeholder="ex: un carnet Moleskine, une boussole, une vieille radio..."
+                >
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 8 — PROJECTION ── -->
+        <section class="form-section" aria-labelledby="s9-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">8</div>
+            <div>
+              <div class="section-title" id="s9-title">Projection</div>
+              <div class="section-subtitle">Dans 2 ans, qu'est-ce qui reste ?</div>
+            </div>
+          </div>
+          <div class="section-body">
+            <fieldset>
+              <legend>Projection dans le futur</legend>
+
+              <div class="field-group">
+                <label for="decouverte-future">Dans 2 ans, quelqu'un découvre le podcast grâce à la cover. Que dit-il ?</label>
+                <textarea
+                  id="decouverte-future"
+                  name="decouverte_future"
+                  placeholder="ex: « Oh, ça a l'air sérieux sans être chiant », « C'est fait par quelqu'un qui se respecte »..."
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="field-group">
+                <label for="perte-si-arret">Si le podcast s'arrêtait demain, qu'est-ce que les gens perdraient ?</label>
+                <textarea
+                  id="perte-si-arret"
+                  name="perte_si_arret"
+                  rows="3"
+                ></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- ── Section 9 — LE SIGNAL ── -->
+        <section class="form-section signal-section" aria-labelledby="s10-title">
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">9</div>
+            <div>
+              <div class="section-title" id="s10-title">Le Signal</div>
+              <div class="section-subtitle">La question finale</div>
+            </div>
+          </div>
+          <div class="signal-body">
+            <fieldset>
+              <legend>Le signal unique</legend>
+              <p class="signal-question">
+                La cover sera vue <span>0,3 secondes</span> dans un flux de scroll.<br>
+                Quel signal <span>UNIQUE</span> doit-elle envoyer ?
+              </p>
+              <p class="signal-context">Un seul mot ou une courte phrase. Pas de stratégie — de l'instinct.</p>
+              <label for="signal-unique" class="sr-only">Le signal unique (requis)</label>
+              <input
+                type="text"
+                id="signal-unique"
+                name="signal_unique"
+                required
+                aria-required="true"
+                placeholder="ex: « Je ne suis pas comme les autres » / « Ici on dit la vérité »"
+              >
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- Submit -->
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Envoyer le brief
+          </button>
+          <p class="submit-note">Le brief sera envoyé directement à l'équipe Bleen.</p>
+        </div>
+
+      </form>
+    </div><!-- /form-content -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    Bleen · Podcast Design Brief · 2025–2026
+  </footer>
+
+  <!-- Screen-reader only utility -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script>
+    (function () {
+      // ── (section infos générales supprimée) ──
+
+      // ── Set _next URL for Formspree redirect ──
+      var nextInput = document.getElementById('next-url');
+      if (nextInput) {
+        nextInput.value = window.location.href.split('#')[0] + '#merci';
+      }
+
+      // ── Merci page logic ──
+      var formContent = document.getElementById('form-content');
+      var merciPage   = document.getElementById('merci-page');
+      var progressWrap = document.getElementById('progress-wrap');
+
+      function showMerci() {
+        formContent.classList.add('hidden');
+        merciPage.classList.add('visible');
+        if (progressWrap) progressWrap.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function showForm() {
+        formContent.classList.remove('hidden');
+        merciPage.classList.remove('visible');
+        if (progressWrap) progressWrap.style.display = '';
+        history.replaceState(null, '', window.location.pathname);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Check hash on load
+      if (window.location.hash === '#merci') {
+        showMerci();
+      }
+
+      // Listen for hash changes
+      window.addEventListener('hashchange', function () {
+        if (window.location.hash === '#merci') {
+          showMerci();
+        } else {
+          showForm();
+        }
+      });
+
+      // Back to form button
+      var backBtn = document.getElementById('back-to-form');
+      if (backBtn) {
+        backBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          showForm();
+        });
+      }
+
+      // ── Progress bar ──
+      var form = document.getElementById('brief-form');
+      var progressBar  = document.getElementById('progress-bar');
+      var progressText = document.getElementById('progress-text');
+
+      // Count fillable fields (text, textarea, url, date, select, radio groups, checkbox groups)
+      function getProgress() {
+        var total = 0;
+        var filled = 0;
+
+        // Text, url, date inputs
+        var textInputs = form.querySelectorAll('input[type="text"], input[type="url"], input[type="date"], textarea');
+        textInputs.forEach(function (el) {
+          if (el.name === '_subject' || el.name === '_next') return;
+          total++;
+          if (el.value.trim() !== '') filled++;
+        });
+
+        // Select
+        var selects = form.querySelectorAll('select');
+        selects.forEach(function (el) {
+          total++;
+          if (el.value !== '') filled++;
+        });
+
+        // Radio groups (count each group as 1 field)
+        var radioNames = {};
+        form.querySelectorAll('input[type="radio"]').forEach(function (el) {
+          radioNames[el.name] = radioNames[el.name] || { checked: false };
+          if (el.checked) radioNames[el.name].checked = true;
+        });
+        Object.keys(radioNames).forEach(function (name) {
+          total++;
+          if (radioNames[name].checked) filled++;
+        });
+
+        // Checkbox groups (count each group as 1 field)
+        var checkNames = {};
+        form.querySelectorAll('input[type="checkbox"]').forEach(function (el) {
+          checkNames[el.name] = checkNames[el.name] || { checked: false };
+          if (el.checked) checkNames[el.name].checked = true;
+        });
+        Object.keys(checkNames).forEach(function (name) {
+          total++;
+          if (checkNames[name].checked) filled++;
+        });
+
+        return { total: total, filled: filled };
+      }
+
+      function updateProgress() {
+        var p = getProgress();
+        var pct = p.total > 0 ? Math.round((p.filled / p.total) * 100) : 0;
+        progressBar.style.width = pct + '%';
+        progressBar.setAttribute('aria-valuenow', pct);
+        progressText.textContent = pct + '%';
+      }
+
+      // Attach listeners
+      form.querySelectorAll('input, textarea, select').forEach(function (el) {
+        el.addEventListener('input', updateProgress);
+        el.addEventListener('change', updateProgress);
+      });
+
+      updateProgress();
+
+    })();
+  </script>
+
+</body>
+</html>
