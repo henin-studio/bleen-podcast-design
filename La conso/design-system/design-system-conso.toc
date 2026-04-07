@@ -1,0 +1,56 @@
+\contentsline {section}{\numberline {1}Contexte du podcast}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Positionnement}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Ce que la marque est}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Ce que la marque n'est pas}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Palette de couleurs}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Gradient de la cover}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Couleurs principales}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Rôles des couleurs}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Contraste et lisibilité}{5}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Typographie}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Hiérarchie typographique}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Aperçu du titre sur la cover}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Traitement du texte sur la cover}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Illustration}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Style}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Personnage : « Le fil rouge »}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Fichier source}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Nettoyage de l'image}{9}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Composition \& mise en page}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Structure de la cover (3000×3000px)}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Règles de composition}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Calques d'export}{10}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Logo Bleen}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Composition du bloc logo}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Ratios du logo SVG (source : bleenconsulting.webflow.io)}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Règles}{11}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Effets \& overlays}{13}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Variantes}{13}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Spécifications techniques}{14}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Format de la cover}{14}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}CSS de référence}{14}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Déclinaisons recommandées}{15}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Formats réseaux sociaux}{15}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Do's \& Don'ts}{15}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Processus d'idéation — Naming}{16}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Direction client}{16}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Contraintes de la famille de podcasts}{16}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Matière première — champ lexical}{16}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Inspiration externe — Objectus}{17}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Inspiration externe — Climax fanzine}{17}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Grille d'évaluation}{19}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Shortlist — Top 3}{19}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Phrase d'intro — méthode}{19}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Phrase d'intro — 4 propositions}{20}{subsection.10.9}%
+\contentsline {subsection}{\numberline {10.10}Correspondance intro × nom}{21}{subsection.10.10}%
+\contentsline {section}{\numberline {11}Mindmap — Vue d'ensemble}{22}{section.11}%
+\contentsline {section}{\numberline {12}Références documentaires}{23}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Livres fondamentaux}{23}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Chiffres clés — avec sources}{23}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Sources belges et européennes}{24}{subsection.12.3}%
+\contentsline {section}{\numberline {13}Nouvelles propositions de covers}{25}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Illustrations générées}{25}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Covers proposées}{25}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Tests couleurs du titre}{26}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Composition du titre « Planète à Crédit »}{26}{subsection.13.4}%
+\contentsline {subsection}{\numberline {13.5}Décision en attente}{27}{subsection.13.5}%

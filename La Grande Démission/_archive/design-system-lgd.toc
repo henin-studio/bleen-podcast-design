@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Contexte du podcast}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Positionnement}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Identité visuelle V3-13 « Rebond »}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Palette de couleurs}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Gradient de fond}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Couleurs principales}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Couleurs secondaires (palette Bleen/LGD)}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Rôles des couleurs sur la cover V3-13}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Contraste et lisibilité}{4}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Typographie}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Titre « La Grande Démission »}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Hiérarchie du titre}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Illustration}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Style}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Personnage}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Traitement de l'image}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Nettoyage de l'image}{7}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Composition \& mise en page}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Structure de la cover (3000×3000px)}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Calques d'export}{8}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Logo Bleen}{9}{section.6}%
+\contentsline {section}{\numberline {7}Effets \& overlays}{10}{section.7}%
+\contentsline {section}{\numberline {8}Spécifications techniques}{11}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Format de la cover}{11}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}CSS de référence}{11}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Déclinaisons recommandées}{12}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Formats réseaux sociaux}{12}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Do's \& Don'ts}{12}{subsection.9.2}%

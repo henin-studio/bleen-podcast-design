@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bleen — La Conso</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/bleen-icone.svg">
+  <link rel="stylesheet" href="../assets/bleen-tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Knewave&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: var(--neutral-900);
+      --gray-50: var(--neutral-50);
+      --gray-100: var(--neutral-50);
+      --gray-200: var(--neutral-200);
+      --gray-400: var(--neutral-500);
+      --gray-500: var(--neutral-500);
+      --font: var(--font-primary);
+      --radius: var(--radius-sm);
+
+      /* La Conso brand */
+      --conso-blue: #3bcdf7;
+      --conso-pink: #ff787a;
+      --conso-yellow: #ffdc37;
+      --conso-navy: #221c46;
+      --conso-coral: #ff7375;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: #F8F6F3;
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Header ── */
+    .header {
+      background: var(--conso-navy);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 28px; }
+
+    .back {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.15s;
+    }
+
+    .back:hover { color: var(--conso-blue); }
+    .back svg { vertical-align: -2px; margin-right: 4px; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--conso-navy), #1a1035);
+      padding: 0 48px 48px;
+      border-bottom: 3px solid var(--conso-blue);
+    }
+
+    .hero h1 {
+      font-family: 'Knewave', cursive;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span { color: var(--conso-blue); }
+
+    .hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 48px 48px 80px;
+    }
+
+    /* ── Section nav ── */
+    .section-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 48px;
+      display: flex;
+      gap: 4px;
+    }
+
+    .section-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-500);
+      white-space: nowrap;
+      border-bottom: 2.5px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .section-nav a:hover { color: var(--black); }
+    .section-nav a.active { color: var(--black); border-bottom-color: var(--conso-blue); }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 10px;
+      background: var(--gray-100);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray-500);
+    }
+
+    .section-nav a.active .nav-badge {
+      background: rgba(59,205,247,0.12);
+      color: var(--conso-blue);
+    }
+
+    /* ── Sections ── */
+    .section-anchor { scroll-margin-top: 56px; padding-top: 32px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .section-header h2 { font-size: 24px; font-weight: 800; color: var(--black); letter-spacing: -0.02em; }
+    .section-count {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 28px; height: 28px; padding: 0 10px; border-radius: 14px;
+      background: rgba(59,205,247,0.1); color: var(--conso-blue);
+      font-size: 12px; font-weight: 700;
+    }
+    .section-desc { font-size: 15px; color: var(--gray-500); line-height: 1.7; margin-bottom: 32px; max-width: 640px; }
+
+    /* ── Covers grid ── */
+    .covers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    .design-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .design-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .design-preview { aspect-ratio: 1; overflow: hidden; position: relative; }
+
+    .cover-inner {
+      width: 100%; height: 100%; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .design-body { padding: 20px 24px 24px; }
+    .design-body h3 { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+    .design-body p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
+
+    .design-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 24px; height: 24px; padding: 0 8px; border-radius: 8px;
+      background: linear-gradient(90deg, var(--conso-blue), var(--conso-pink));
+      color: white; font-size: 10px; font-weight: 700; margin-bottom: 8px;
+    }
+
+    /* ── Palette section ── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    /* ── bb icon SVG ── */
+    .bb-icon { width: 24px; height: auto; }
+    .bleen-text { width: 40px; height: auto; }
+
+    /* ── Set label ── */
+    .set-label {
+      grid-column: 1 / -1;
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--gray-400);
+      padding: 24px 0 8px; display: flex; align-items: center; gap: 16px;
+    }
+    .set-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gray-200), transparent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <a href="../index.html" class="back">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      Retour
+    </a>
+    <div class="logo">
+      <img src="../assets/logo/bleen-logo-white.svg" alt="Bleen" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>La <span>Conso</span></h1>
+    <p>Exploration de covers pour le podcast consommation de Bleen. 6 propositions avec differents noms et directions visuelles.</p>
+  </div>
+
+  <!-- Nav -->
+  <nav class="section-nav">
+    <a href="#covers" class="active">Covers <span class="nav-badge">6</span></a>
+    <a href="#palettes">Palettes <span class="nav-badge">2</span></a>
+  </nav>
+
+  <div class="container">
+
+    <!-- ══════ PALETTES ══════ -->
+    <div id="palettes" class="section-anchor">
+      <div class="section-header">
+        <h2>Palettes</h2>
+        <span class="section-count">2</span>
+      </div>
+      <p class="section-desc">Palettes utilisees dans les covers. Gradient bleu-rose valide comme direction principale.</p>
+
+      <div class="palette-grid">
+        <!-- Palette 1: Bleu-Rose -->
+        <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+          <div style="height:80px;background:linear-gradient(90deg, #3bcdf7, #ff787a);"></div>
+          <div style="padding:14px 16px;">
+            <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Bleu-Rose <span style="font-size:11px;color:#6B7280;font-weight:400;">— gradient principal</span></div>
+            <div style="font-size:12px;color:#6B7280;">Gradient horizontal bleu ciel vers rose corail. Frais, pop, consommation.</div>
+            <div style="font-size:11px;color:#9CA3AF;margin-top:6px;font-family:monospace;">#3bcdf7 → #ff787a</div>
+          </div>
+        </div>
+
+        <!-- Palette 2: Accents -->
+        <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+          <div style="height:80px;display:flex;">
+            <div style="flex:2;background:#221c46;"></div>
+            <div style="flex:2;background:#ffdc37;"></div>
+            <div style="flex:1;background:#ff7375;"></div>
+            <div style="flex:1;background:#3bcdf7;"></div>
+            <div style="flex:1;background:#ffffff;border:1px solid #eee;"></div>
+          </div>
+          <div style="padding:14px 16px;">
+            <div style="font-weight:700;font-size:14px;margin-bottom:4px;">Accents <span style="font-size:11px;color:#6B7280;font-weight:400;">— couleurs complementaires</span></div>
+            <div style="font-size:12px;color:#6B7280;">Navy profond, jaune solaire, corail, bleu ciel, blanc.</div>
+            <div style="font-size:11px;color:#9CA3AF;margin-top:6px;font-family:monospace;">#221c46 #ffdc37 #ff7375 #3bcdf7 #ffffff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ COVERS ══════ -->
+    <div id="covers" class="section-anchor">
+      <div class="section-header">
+        <h2>Covers</h2>
+        <span class="section-count">6</span>
+      </div>
+      <p class="section-desc">6 directions de covers. Chaque proposition explore un nom et un angle visuel different.</p>
+
+      <div class="covers-grid">
+
+        <!-- ─── Cover 1: Homo Consumens ─── -->
+        <div class="design-card">
+          <div class="design-preview">
+            <div class="cover-inner" style="background:linear-gradient(90deg, #3bcdf7, #ff787a);">
+              <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(0,0,0,0.12) 100%);"></div>
+              <img src="images/nobg/1.png" alt="" style="position:absolute;bottom:-8%;left:-5%;width:95%;height:auto;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">
+              <div style="position:absolute;top:5%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;padding:0 6%;">
+                <div style="font-size:clamp(30px,10vw,50px);color:#ffffff;line-height:0.9;font-family:'Knewave',cursive;text-align:center;-webkit-text-stroke:2px rgba(0,0,0,0.5);paint-order:stroke fill;text-shadow:0 3px 10px rgba(0,0,0,0.5);">Homo</div>
+                <div style="font-size:clamp(30px,10vw,50px);color:#ffdc37;line-height:0.85;font-family:'Knewave',cursive;text-align:center;margin-top:-4px;-webkit-text-stroke:2px rgba(0,0,0,0.5);paint-order:stroke fill;text-shadow:0 3px 10px rgba(0,0,0,0.5);">Consumens</div>
+                <div style="font-size:clamp(9px,3vw,13px);color:rgba(255,255,255,0.9);font-family:'Caveat',cursive;font-weight:700;letter-spacing:0.06em;margin-top:4px;text-shadow:0 1px 4px rgba(0,0,0,0.4);">Toujours plus. Jamais assez.</div>
+              </div>
+              <!-- bb + bleen bottom-right -->
+              <div style="position:absolute;bottom:6%;right:6%;z-index:10;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:24px;height:auto;"><mask id="cBa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cBa)"><path d="M200 180C200 235.2 155.2 280 100 280C44.8 280 0 235.2 0 180V80H100C155.2 80 200 124.8 200 180Z" fill="currentColor"/></g><mask id="cBb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cBb)"><path d="M160 80C160 124.2 124.2 160 80 160C35.8 160 0 124.2 0 80V0H80C124.2 0 160 35.8 160 80Z" fill="currentColor"/></g></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:40px;height:auto;"><path d="M270 160.7V70H289V125C296.6 116.6 308 111 320.7 111C349.2 111 369.6 132 369.6 160.7C369.6 187.9 348.2 210 319.9 210C291.6 210 270 188.6 270 160.7ZM350.7 160.5C350.7 143.4 337.3 129.1 319.9 129.1C302.5 129.1 289 143.4 289 160.5C289 177.6 302.3 192.1 319.9 192.1C337.5 192.1 350.7 177.8 350.7 160.5Z" fill="currentColor"/><path d="M401.3 70V207.7H382.4V70H401.3Z" fill="currentColor"/><path d="M414.1 159.9C414.1 132.8 433.4 110.6 461.5 110.6C489.7 110.6 507.4 131.2 507.4 157.6V165.3H432.5C434.6 181.5 446.8 192.9 463.6 192.9C475.1 192.9 485.4 187.8 491 177.5L505.5 185C497.3 201.1 482.2 209.8 463.8 209.8C435.3 209.8 414.1 189 414.1 159.9ZM488.5 153C487.7 138 476.8 127.8 461.3 127.8C445.9 127.8 435.2 138.9 433.2 153H488.5Z" fill="currentColor"/><path d="M520.2 159.9C520.2 132.8 539.5 110.6 567.6 110.6C595.7 110.6 613.5 131.2 613.5 157.6V165.3H538.6C540.7 181.5 552.9 192.9 569.7 192.9C581.2 192.9 591.5 187.8 597.1 177.5L611.6 185C603.4 201.1 588.3 209.8 569.9 209.8C541.4 209.8 520.2 189 520.2 159.9ZM594.6 153C593.8 138 582.9 127.8 567.4 127.8C552 127.8 541.2 138.9 539.3 153H594.6Z" fill="currentColor"/><path d="M645.2 162.1V207.7H626.3V160.1C626.3 132.6 642.6 111 672.8 111C703 111 720 132.6 720 159.9V207.7H701.1V162.2C701.1 144.5 691.5 129.3 672.8 129.3C654 129.3 645.2 144.5 645.2 162.1Z" fill="currentColor"/></svg></div>
+            </div>
+          </div>
+          <div class="design-body">
+            <span class="design-num">1</span>
+            <h3>Homo Consumens</h3>
+            <p>Titre latin, tagline percutante. Gradient bleu-rose horizontal. Icone shopping bag en filigrane.</p>
+          </div>
+        </div>
+
+        <!-- ─── Cover 2: La Conso — Dark ─── -->
+        <div class="design-card">
+          <div class="design-preview">
+            <div class="cover-inner" style="background:#221c46;">
+              <div style="position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(0deg, rgba(59,205,247,0.2) 0%, transparent 100%);z-index:1;"></div>
+              <img src="images/nobg/1.png" alt="" style="position:absolute;bottom:-8%;left:-5%;width:95%;height:auto;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.25));">
+              <div style="position:absolute;top:5%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;padding:0 6%;">
+
+                <div style="font-size:clamp(36px,12vw,60px);color:#ffffff;line-height:0.85;font-family:'Knewave',cursive;text-shadow:0 4px 20px rgba(59,205,247,0.3);">La</div>
+                <div style="font-size:clamp(36px,12vw,60px);color:#3bcdf7;line-height:0.85;font-family:'Knewave',cursive;margin-top:-4px;text-shadow:0 4px 20px rgba(59,205,247,0.4);">Conso</div>
+              </div>
+              <div style="position:absolute;bottom:6%;right:6%;z-index:10;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:24px;height:auto;"><mask id="cLa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLa)"><path d="M200 180C200 235.2 155.2 280 100 280C44.8 280 0 235.2 0 180V80H100C155.2 80 200 124.8 200 180Z" fill="currentColor"/></g><mask id="cLb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLb)"><path d="M160 80C160 124.2 124.2 160 80 160C35.8 160 0 124.2 0 80V0H80C124.2 0 160 35.8 160 80Z" fill="currentColor"/></g></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:40px;height:auto;"><path d="M270 160.7V70H289V125C296.6 116.6 308 111 320.7 111C349.2 111 369.6 132 369.6 160.7C369.6 187.9 348.2 210 319.9 210C291.6 210 270 188.6 270 160.7ZM350.7 160.5C350.7 143.4 337.3 129.1 319.9 129.1C302.5 129.1 289 143.4 289 160.5C289 177.6 302.3 192.1 319.9 192.1C337.5 192.1 350.7 177.8 350.7 160.5Z" fill="currentColor"/><path d="M401.3 70V207.7H382.4V70H401.3Z" fill="currentColor"/><path d="M414.1 159.9C414.1 132.8 433.4 110.6 461.5 110.6C489.7 110.6 507.4 131.2 507.4 157.6V165.3H432.5C434.6 181.5 446.8 192.9 463.6 192.9C475.1 192.9 485.4 187.8 491 177.5L505.5 185C497.3 201.1 482.2 209.8 463.8 209.8C435.3 209.8 414.1 189 414.1 159.9ZM488.5 153C487.7 138 476.8 127.8 461.3 127.8C445.9 127.8 435.2 138.9 433.2 153H488.5Z" fill="currentColor"/><path d="M520.2 159.9C520.2 132.8 539.5 110.6 567.6 110.6C595.7 110.6 613.5 131.2 613.5 157.6V165.3H538.6C540.7 181.5 552.9 192.9 569.7 192.9C581.2 192.9 591.5 187.8 597.1 177.5L611.6 185C603.4 201.1 588.3 209.8 569.9 209.8C541.4 209.8 520.2 189 520.2 159.9ZM594.6 153C593.8 138 582.9 127.8 567.4 127.8C552 127.8 541.2 138.9 539.3 153H594.6Z" fill="currentColor"/><path d="M645.2 162.1V207.7H626.3V160.1C626.3 132.6 642.6 111 672.8 111C703 111 720 132.6 720 159.9V207.7H701.1V162.2C701.1 144.5 691.5 129.3 672.8 129.3C654 129.3 645.2 144.5 645.2 162.1Z" fill="currentColor"/></svg></div>
+            </div>
+          </div>
+          <div class="design-body">
+            <span class="design-num">2</span>
+            <h3>La Conso — Dark</h3>
+            <p>Navy profond, titre bleu electrique. Illustration en bas, glow bleu subtil.</p>
+          </div>
+        </div>
+
+        <!-- ─── Cover 3: TROP ─── -->
+        <div class="design-card">
+          <div class="design-preview">
+            <div class="cover-inner" style="background:linear-gradient(135deg, #3bcdf7, #ff787a);">
+              <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%, transparent 30%, rgba(0,0,0,0.15) 100%);"></div>
+              <img src="images/nobg/1.png" alt="" style="position:absolute;bottom:-8%;left:-5%;width:95%;height:auto;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.25));">
+              <div style="position:absolute;top:5%;left:0;right:0;z-index:10;text-align:center;padding:0 5%;">
+                <div style="font-size:clamp(60px,22vw,100px);color:#ffffff;line-height:0.8;font-family:'Knewave',cursive;-webkit-text-stroke:3px rgba(0,0,0,0.4);paint-order:stroke fill;text-shadow:0 6px 30px rgba(0,0,0,0.5);">TROP</div>
+              </div>
+              <div style="position:absolute;bottom:6%;right:6%;z-index:10;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:24px;height:auto;"><mask id="cLa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLa)"><path d="M200 180C200 235.2 155.2 280 100 280C44.8 280 0 235.2 0 180V80H100C155.2 80 200 124.8 200 180Z" fill="currentColor"/></g><mask id="cLb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLb)"><path d="M160 80C160 124.2 124.2 160 80 160C35.8 160 0 124.2 0 80V0H80C124.2 0 160 35.8 160 80Z" fill="currentColor"/></g></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:40px;height:auto;"><path d="M270 160.7V70H289V125C296.6 116.6 308 111 320.7 111C349.2 111 369.6 132 369.6 160.7C369.6 187.9 348.2 210 319.9 210C291.6 210 270 188.6 270 160.7ZM350.7 160.5C350.7 143.4 337.3 129.1 319.9 129.1C302.5 129.1 289 143.4 289 160.5C289 177.6 302.3 192.1 319.9 192.1C337.5 192.1 350.7 177.8 350.7 160.5Z" fill="currentColor"/><path d="M401.3 70V207.7H382.4V70H401.3Z" fill="currentColor"/><path d="M414.1 159.9C414.1 132.8 433.4 110.6 461.5 110.6C489.7 110.6 507.4 131.2 507.4 157.6V165.3H432.5C434.6 181.5 446.8 192.9 463.6 192.9C475.1 192.9 485.4 187.8 491 177.5L505.5 185C497.3 201.1 482.2 209.8 463.8 209.8C435.3 209.8 414.1 189 414.1 159.9ZM488.5 153C487.7 138 476.8 127.8 461.3 127.8C445.9 127.8 435.2 138.9 433.2 153H488.5Z" fill="currentColor"/><path d="M520.2 159.9C520.2 132.8 539.5 110.6 567.6 110.6C595.7 110.6 613.5 131.2 613.5 157.6V165.3H538.6C540.7 181.5 552.9 192.9 569.7 192.9C581.2 192.9 591.5 187.8 597.1 177.5L611.6 185C603.4 201.1 588.3 209.8 569.9 209.8C541.4 209.8 520.2 189 520.2 159.9ZM594.6 153C593.8 138 582.9 127.8 567.4 127.8C552 127.8 541.2 138.9 539.3 153H594.6Z" fill="currentColor"/><path d="M645.2 162.1V207.7H626.3V160.1C626.3 132.6 642.6 111 672.8 111C703 111 720 132.6 720 159.9V207.7H701.1V162.2C701.1 144.5 691.5 129.3 672.8 129.3C654 129.3 645.2 144.5 645.2 162.1Z" fill="currentColor"/></svg></div>
+            </div>
+          </div>
+          <div class="design-body">
+            <span class="design-num">3</span>
+            <h3>TROP — Impact</h3>
+            <p>Un seul mot massif en haut. Illustration en bas. Gradient bleu-rose. Percutant.</p>
+          </div>
+        </div>
+
+        <!-- ─── Cover 4: Caddie Vide — jaune ─── -->
+        <div class="design-card">
+          <div class="design-preview">
+            <div class="cover-inner" style="background:#ffdc37;">
+              <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 30% 70%, rgba(255,115,117,0.2) 0%, transparent 50%);"></div>
+              <img src="images/nobg/1.png" alt="" style="position:absolute;bottom:-8%;left:-5%;width:95%;height:auto;z-index:2;filter:drop-shadow(0 4px 12px rgba(34,28,70,0.15));">
+              <div style="position:absolute;top:5%;left:0;right:0;z-index:10;display:flex;flex-direction:column;align-items:center;padding:0 6%;">
+                <div style="font-size:clamp(34px,11vw,56px);color:#221c46;line-height:0.9;font-family:'Knewave',cursive;text-align:center;">Caddie</div>
+                <div style="font-size:clamp(34px,11vw,56px);color:#ff7375;line-height:0.85;font-family:'Knewave',cursive;text-align:center;margin-top:-4px;">Vide</div>
+              </div>
+              <div style="position:absolute;bottom:6%;right:6%;z-index:10;display:flex;align-items:center;gap:6px;color:rgba(34,28,70,0.35);filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:24px;height:auto;"><mask id="cLa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLa)"><path d="M200 180C200 235.2 155.2 280 100 280C44.8 280 0 235.2 0 180V80H100C155.2 80 200 124.8 200 180Z" fill="currentColor"/></g><mask id="cLb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLb)"><path d="M160 80C160 124.2 124.2 160 80 160C35.8 160 0 124.2 0 80V0H80C124.2 0 160 35.8 160 80Z" fill="currentColor"/></g></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:40px;height:auto;"><path d="M270 160.7V70H289V125C296.6 116.6 308 111 320.7 111C349.2 111 369.6 132 369.6 160.7C369.6 187.9 348.2 210 319.9 210C291.6 210 270 188.6 270 160.7ZM350.7 160.5C350.7 143.4 337.3 129.1 319.9 129.1C302.5 129.1 289 143.4 289 160.5C289 177.6 302.3 192.1 319.9 192.1C337.5 192.1 350.7 177.8 350.7 160.5Z" fill="currentColor"/><path d="M401.3 70V207.7H382.4V70H401.3Z" fill="currentColor"/><path d="M414.1 159.9C414.1 132.8 433.4 110.6 461.5 110.6C489.7 110.6 507.4 131.2 507.4 157.6V165.3H432.5C434.6 181.5 446.8 192.9 463.6 192.9C475.1 192.9 485.4 187.8 491 177.5L505.5 185C497.3 201.1 482.2 209.8 463.8 209.8C435.3 209.8 414.1 189 414.1 159.9ZM488.5 153C487.7 138 476.8 127.8 461.3 127.8C445.9 127.8 435.2 138.9 433.2 153H488.5Z" fill="currentColor"/><path d="M520.2 159.9C520.2 132.8 539.5 110.6 567.6 110.6C595.7 110.6 613.5 131.2 613.5 157.6V165.3H538.6C540.7 181.5 552.9 192.9 569.7 192.9C581.2 192.9 591.5 187.8 597.1 177.5L611.6 185C603.4 201.1 588.3 209.8 569.9 209.8C541.4 209.8 520.2 189 520.2 159.9ZM594.6 153C593.8 138 582.9 127.8 567.4 127.8C552 127.8 541.2 138.9 539.3 153H594.6Z" fill="currentColor"/><path d="M645.2 162.1V207.7H626.3V160.1C626.3 132.6 642.6 111 672.8 111C703 111 720 132.6 720 159.9V207.7H701.1V162.2C701.1 144.5 691.5 129.3 672.8 129.3C654 129.3 645.2 144.5 645.2 162.1Z" fill="currentColor"/></svg></div>
+            </div>
+          </div>
+          <div class="design-body">
+            <span class="design-num">4</span>
+            <h3>Caddie Vide — Jaune pop</h3>
+            <p>Fond jaune solaire, titre navy + corail. Illustration integree. Ironie douce.</p>
+          </div>
+        </div>
+
+        <!-- ─── Cover 5: En Conscience ─── -->
+        <div class="design-card">
+          <div class="design-preview">
+            <div class="cover-inner" style="background:linear-gradient(180deg, #3bcdf7 0%, #3bcdf7 50%, #ff787a 50%, #ff787a 100%);">
+              <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);"></div>
+              <img src="images/nobg/1.png" alt="" style="position:absolute;bottom:-8%;left:-5%;width:95%;height:auto;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.25));">
+              <div style="position:absolute;top:5%;left:0;right:0;z-index:10;text-align:center;padding:0 5%;">
+                <div style="font-size:clamp(14px,4.5vw,22px);color:rgba(255,255,255,0.7);font-family:'Caveat',cursive;font-weight:700;letter-spacing:0.05em;">Consommer</div>
+                <div style="font-size:clamp(40px,14vw,68px);color:#ffffff;line-height:0.85;font-family:'Knewave',cursive;-webkit-text-stroke:2px rgba(0,0,0,0.4);paint-order:stroke fill;text-shadow:0 4px 20px rgba(0,0,0,0.4);">En Conscience</div>
+              </div>
+              <div style="position:absolute;top:50%;left:10%;right:10%;height:2px;background:rgba(255,255,255,0.25);z-index:5;"></div>
+              <div style="position:absolute;bottom:6%;right:6%;z-index:10;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:24px;height:auto;"><mask id="cLa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLa)"><path d="M200 180C200 235.2 155.2 280 100 280C44.8 280 0 235.2 0 180V80H100C155.2 80 200 124.8 200 180Z" fill="currentColor"/></g><mask id="cLb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLb)"><path d="M160 80C160 124.2 124.2 160 80 160C35.8 160 0 124.2 0 80V0H80C124.2 0 160 35.8 160 80Z" fill="currentColor"/></g></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:40px;height:auto;"><path d="M270 160.7V70H289V125C296.6 116.6 308 111 320.7 111C349.2 111 369.6 132 369.6 160.7C369.6 187.9 348.2 210 319.9 210C291.6 210 270 188.6 270 160.7ZM350.7 160.5C350.7 143.4 337.3 129.1 319.9 129.1C302.5 129.1 289 143.4 289 160.5C289 177.6 302.3 192.1 319.9 192.1C337.5 192.1 350.7 177.8 350.7 160.5Z" fill="currentColor"/><path d="M401.3 70V207.7H382.4V70H401.3Z" fill="currentColor"/><path d="M414.1 159.9C414.1 132.8 433.4 110.6 461.5 110.6C489.7 110.6 507.4 131.2 507.4 157.6V165.3H432.5C434.6 181.5 446.8 192.9 463.6 192.9C475.1 192.9 485.4 187.8 491 177.5L505.5 185C497.3 201.1 482.2 209.8 463.8 209.8C435.3 209.8 414.1 189 414.1 159.9ZM488.5 153C487.7 138 476.8 127.8 461.3 127.8C445.9 127.8 435.2 138.9 433.2 153H488.5Z" fill="currentColor"/><path d="M520.2 159.9C520.2 132.8 539.5 110.6 567.6 110.6C595.7 110.6 613.5 131.2 613.5 157.6V165.3H538.6C540.7 181.5 552.9 192.9 569.7 192.9C581.2 192.9 591.5 187.8 597.1 177.5L611.6 185C603.4 201.1 588.3 209.8 569.9 209.8C541.4 209.8 520.2 189 520.2 159.9ZM594.6 153C593.8 138 582.9 127.8 567.4 127.8C552 127.8 541.2 138.9 539.3 153H594.6Z" fill="currentColor"/><path d="M645.2 162.1V207.7H626.3V160.1C626.3 132.6 642.6 111 672.8 111C703 111 720 132.6 720 159.9V207.7H701.1V162.2C701.1 144.5 691.5 129.3 672.8 129.3C654 129.3 645.2 144.5 645.2 162.1Z" fill="currentColor"/></svg></div>
+            </div>
+          </div>
+          <div class="design-body">
+            <span class="design-num">5</span>
+            <h3>En Conscience — Split</h3>
+            <p>Split bleu/rose. Titre en haut. Angle Fresque de la Conso, positif.</p>
+          </div>
+        </div>
+
+        <!-- ─── Cover 6: Achetons Mieux ─── -->
+        <div class="design-card">
+          <div class="design-preview">
+            <div class="cover-inner" style="background:linear-gradient(150deg, #221c46 0%, #3bcdf7 50%, #ff787a 100%);">
+              <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 80% 80% at 50% 40%, transparent 40%, rgba(0,0,0,0.15) 100%);"></div>
+              <img src="images/nobg/1.png" alt="" style="position:absolute;bottom:-8%;left:-5%;width:95%;height:auto;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.25));">
+              <div style="position:absolute;top:5%;left:0;right:0;z-index:10;text-align:center;padding:0 5%;">
+                <div style="font-size:clamp(22px,7vw,36px);color:#ffdc37;line-height:1;font-family:'Caveat',cursive;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.4);">Achetons</div>
+                <div style="font-size:clamp(38px,13vw,64px);color:#ffffff;line-height:0.85;font-family:'Knewave',cursive;margin-top:-4px;-webkit-text-stroke:2px rgba(0,0,0,0.5);paint-order:stroke fill;text-shadow:0 4px 16px rgba(0,0,0,0.5);">Mieux</div>
+              </div>
+              <div style="position:absolute;bottom:6%;right:6%;z-index:10;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="none" style="width:24px;height:auto;"><mask id="cLa" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="80" width="200" height="200"><path d="M200 80H0V280H200V80Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLa)"><path d="M200 180C200 235.2 155.2 280 100 280C44.8 280 0 235.2 0 180V80H100C155.2 80 200 124.8 200 180Z" fill="currentColor"/></g><mask id="cLb" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="160"><path d="M160 0H0V160H160V0Z" fill="white" fill-opacity="0.7"/></mask><g mask="url(#cLb)"><path d="M160 80C160 124.2 124.2 160 80 160C35.8 160 0 124.2 0 80V0H80C124.2 0 160 35.8 160 80Z" fill="currentColor"/></g></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="270 60 450 160" fill="none" style="width:40px;height:auto;"><path d="M270 160.7V70H289V125C296.6 116.6 308 111 320.7 111C349.2 111 369.6 132 369.6 160.7C369.6 187.9 348.2 210 319.9 210C291.6 210 270 188.6 270 160.7ZM350.7 160.5C350.7 143.4 337.3 129.1 319.9 129.1C302.5 129.1 289 143.4 289 160.5C289 177.6 302.3 192.1 319.9 192.1C337.5 192.1 350.7 177.8 350.7 160.5Z" fill="currentColor"/><path d="M401.3 70V207.7H382.4V70H401.3Z" fill="currentColor"/><path d="M414.1 159.9C414.1 132.8 433.4 110.6 461.5 110.6C489.7 110.6 507.4 131.2 507.4 157.6V165.3H432.5C434.6 181.5 446.8 192.9 463.6 192.9C475.1 192.9 485.4 187.8 491 177.5L505.5 185C497.3 201.1 482.2 209.8 463.8 209.8C435.3 209.8 414.1 189 414.1 159.9ZM488.5 153C487.7 138 476.8 127.8 461.3 127.8C445.9 127.8 435.2 138.9 433.2 153H488.5Z" fill="currentColor"/><path d="M520.2 159.9C520.2 132.8 539.5 110.6 567.6 110.6C595.7 110.6 613.5 131.2 613.5 157.6V165.3H538.6C540.7 181.5 552.9 192.9 569.7 192.9C581.2 192.9 591.5 187.8 597.1 177.5L611.6 185C603.4 201.1 588.3 209.8 569.9 209.8C541.4 209.8 520.2 189 520.2 159.9ZM594.6 153C593.8 138 582.9 127.8 567.4 127.8C552 127.8 541.2 138.9 539.3 153H594.6Z" fill="currentColor"/><path d="M645.2 162.1V207.7H626.3V160.1C626.3 132.6 642.6 111 672.8 111C703 111 720 132.6 720 159.9V207.7H701.1V162.2C701.1 144.5 691.5 129.3 672.8 129.3C654 129.3 645.2 144.5 645.2 162.1Z" fill="currentColor"/></svg></div>
+            </div>
+          </div>
+          <div class="design-body">
+            <span class="design-num">6</span>
+            <h3>Achetons Mieux</h3>
+            <p>Caveat + Knewave. Gradient diagonal navy-bleu-rose. Angle positif/solution.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
