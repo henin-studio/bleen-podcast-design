@@ -1,29 +1,277 @@
-# Prompts d'illustration — Covers "Planète à Crédit"
+# Prompts d'illustration — Podcast Conso
 
-> Prompts à donner à Gemini pour générer les éléments visuels de la cover.
-> Chaque élément est généré séparément, fond transparent, pour assemblage en collage.
-> Style cible : Climax fanzine — pop, satirique, énergique, pas lisse.
+> Prompts Gemini pour les covers du podcast consommation (Bleen).
+> Derniere mise a jour : 13 avril 2026.
 
 ---
 
-## Consignes globales (à ajouter à chaque prompt)
+## Sommaire
+
+1. [V6 — Sobre & Sexy](#v6) (direction actuelle, avril 2026)
+2. [V5 — Absurde + Fanzine](#v5) (archivee, mars 2026)
+
+---
+
+# V6 — Direction "Sobre & Sexy" {#v6}
+
+## Contexte
+
+Feedback Olivier (avril 2026) :
+- La cover 11 (crop 250% de `fille-noyee-objets.png`) a le bon cadrage
+- Mais le visage fait **tristounet** a cote de LGD et Velotaf
+- Pivot : "Make the transition sexy" — donner envie, pas deprimer
+- Noms preferes : La Vie en Sobre, Juste Assez, Zero Superflu, La Deconsommation
+- Si "La Vie en Sobre" : grosse touche de rose, rappel Piaf
+
+## Strategie
+
+On **varie la cover 11** plutot que repartir de zero :
+- Meme composition (crop 250%, fragment visible, titre en haut)
+- Changer le visage (joyeux), les couleurs (rose Piaf), l'emotion (liberte)
+- Joindre `images/used/fille-noyee-objets.png` a Gemini comme reference
+
+## Consignes globales
+
+Copier ce bloc **avant** chaque prompt specifique :
+
+```
+CONTEXTE : Illustration pour une cover de podcast (consommation responsable).
+Sera croppee a 250% — on ne verra que le visage + haut du corps.
+L'expression du visage est CRITIQUE.
+
+STYLE : Bold flat editorial illustration, thick outlines, saturated colors.
+Famille de podcasts Bleen (Velotaf, La Grande Demission).
+Clean shapes, pas hyperrealiste, pas cartoon.
+
+EMOTION : Joyeuse, libre, confiante.
+PAS triste, PAS accablee, PAS militante.
+"La sobriete, c'est la liberte."
+
+PALETTE :
+- Rose Piaf #E8396B (dominant)
+- Rose corail #FF4D6A
+- Rose chaud #FF6B8A
+- Creme chaud #FFF5E1
+- Navy #221C46 (outlines)
+- Jaune solaire #FFDC37 (accents)
+
+TECHNIQUE : Black background. PNG. 3000x3000 min.
+Pas de : purple gradients, floating particles, dreamy glow.
+```
+
+---
+
+## Prompts V6
+
+### V6-R1 — Meme pose, visage joyeux
+
+> Variation directe. Le plus sur — on sait que la compo marche.
+> **Joindre** `fille-noyee-objets.png`.
+
+```
+[Joindre l'image fille-noyee-objets.png]
+
+Refais cette illustration en gardant la meme composition et le meme style
+(femme entouree d'objets de consommation, vue plongeante / trois-quarts,
+bold flat illustration, thick outlines, saturated colors).
+
+CHANGEMENTS :
+1. VISAGE : Remplace l'expression accablee par un SOURIRE FRANC.
+   Yeux petillants, joie, legerete. Elle vient de decider de lacher prise.
+2. COULEURS : Tons ROSES CHAUDS au lieu de sombres/froids.
+   Rose dominant (#E8396B, #FF4D6A, #FF6B8A).
+   Objets en creme (#FFF5E1) et jaune (#FFDC37).
+   Outlines navy (#221C46).
+3. OBJETS : Memes objets MAIS ils s'eloignent d'elle, flottent vers
+   l'exterieur — elle les LACHE, pas elle est submergee.
+4. ENERGIE : Donner ENVIE, pas deprimer. "Make the transition sexy."
+
+GARDER : cadrage (vue plongeante), style flat bold, thick outlines.
+
+Black background. PNG. Haute resolution.
+```
+
+---
+
+### V6-R2 — Direction Piaf, rose tendre
+
+> Specifique a "La Vie en Sobre". Rappel Piaf.
+> **Joindre** `fille-noyee-objets.png`.
+
+```
+[Joindre l'image fille-noyee-objets.png]
+
+Refais cette illustration mais dans une direction "LA VIE EN SOBRE" :
+
+1. VISAGE : Sourire chaud, yeux mi-clos ou regard complice.
+   Pas commercial — INTIME, comme Piaf qui chante.
+   Quelqu'un qui a trouve ce qui compte vraiment.
+2. COULEURS : Rose Piaf DOMINANT (#E8396B).
+   Degrade #FF6B8A vers #F2A0B0. Creme #FFF5E1 pour accents clairs.
+   Navy #221C46 outlines. PAS de bleu ciel.
+3. ELEMENTS PIAF (subtils) : Une rose dans les cheveux OU a la main.
+   Rappel retro/parisien (beret, mariniere) MAIS modernise. Pas un costume.
+4. OBJETS : Moins que l'originale. Quelques-uns qui s'eloignent.
+   L'espace vide est VOULU — c'est le message.
+5. AMBIANCE : Romantique, chaleureuse, elegante.
+   La sobriete comme choix desirable, pas sacrifice.
+
+GARDER : style flat bold, thick outlines, cadrage serre.
+Sera croppee a 250% — le visage doit etre lisible en miniature.
+
+Black background. PNG. Haute resolution.
+```
+
+---
+
+### V6-R3 — Liberation, bras ouverts
+
+> Inversion emotionnelle de la cover 11. Le plus ambitieux.
+> **Joindre** `fille-noyee-objets.png`.
+
+```
+[Joindre l'image fille-noyee-objets.png]
+
+Refais cette illustration mais INVERSEE emotionnellement :
+
+AVANT (image jointe) : submergee, passive, les objets l'envahissent.
+APRES (ce que je veux) : LIBRE, active, les objets s'envolent loin d'elle.
+
+1. POSE : Bras ouverts ou leves, corps detendu, en mouvement.
+   Elle REPOUSSE les objets — geste d'ouverture, pas de noyade.
+2. VISAGE : Grand sourire, yeux fermes de bonheur ou regard vers le haut.
+   Quelqu'un qui retire un poids de ses epaules.
+3. OBJETS : Memes objets MAIS en mouvement VERS L'EXTERIEUR.
+   Ils s'eloignent, rapetissent, deviennent flous. Centre = elle, libre.
+4. COULEURS : Rose Piaf (#E8396B, #FF4D6A), creme (#FFF5E1),
+   jaune (#FFDC37) sur les objets qui partent. Navy outlines (#221C46).
+5. ENERGIE : Joyeuse, dynamique. "La liberte de lacher prise."
+
+GARDER : style flat bold, thick outlines, composition serree.
+Crop 250% — visage + haut du corps = seules parties visibles.
+
+Black background. PNG. Haute resolution.
+```
+
+---
+
+### V6-R4 — Sobriete chic (from scratch)
+
+> Pas de reference image. Style different a tester.
+
+```
+Editorial illustration of a young woman standing confidently with
+almost nothing in her hands — just one beautiful object (a book,
+a reusable cup, a plant). Dressed simply but stylishly.
+Relaxed posture, slight smile, one hand in pocket or on hip.
+She looks like she has her life figured out. Cool, not preachy.
+
+Around her: lots of empty space. The emptiness IS the statement.
+Maybe a few tiny consumer objects far away, faded, irrelevant.
+
+Style: bold flat editorial illustration, thick outlines.
+Colors: dominant rose Piaf (#E8396B), coral (#FF4D6A),
+warm cream (#FFF5E1). Navy outlines (#221C46).
+
+Expression: quiet confidence. "I chose this." Slight smirk.
+French girl aesthetic meets sustainability.
+
+Will be cropped to 250% — face and upper body are key.
+
+Black background. High resolution. PNG.
+```
+
+---
+
+### V6-R5 — Danse libre (from scratch)
+
+> Pas de reference image. Energie pure, zero objet.
+
+```
+Editorial illustration of a young woman dancing or mid-twirl,
+full of energy and joy. Hair in movement, clothes flowing.
+No consumer objects — just her, in motion, free.
+Maybe a few abstract shapes or confetti-like elements for energy.
+
+Style: bold flat illustration, dynamic pose, thick outlines.
+Colors: rose Piaf (#E8396B) dominant, coral (#FF4D6A),
+rose chaud (#FF6B8A), cream (#FFF5E1). Navy outlines.
+
+Movement frozen in time. Pure joy, laughter, eyes crinkled.
+NOT a model pose — genuine, spontaneous movement.
+
+The feeling of walking out of a store without buying anything
+and feeling GREAT about it.
+
+Will be cropped to 250% — upper body and face are anchor.
+
+Black background. High resolution. PNG.
+```
+
+---
+
+## Process Gemini
+
+| Etape | Action |
+|-------|--------|
+| 1 | Copier les **consignes globales** V6 |
+| 2 | Copier le **prompt specifique** (R1, R2, etc.) |
+| 3 | **Joindre** `images/used/fille-noyee-objets.png` pour R1/R2/R3 |
+| 4 | Generer |
+| 5 | **Test crop** : zoomer a 250% sur le visage — l'expression se lit ? |
+| 6 | Si non : re-generer en demandant un zoom sur le haut du corps |
+
+**Ordre de priorite :**
+
+1. **V6-R1** — variation directe, le plus sur
+2. **V6-R2** — direction Piaf, specifique a "La Vie en Sobre"
+3. **V6-R3** — liberation, bras ouverts
+4. V6-R4 / V6-R5 — alternatives from scratch
+
+**Black background** (pas transparent) : plus fiable sur Gemini. On retire le fond apres dans Photoshop ou via `background-removal-js`.
+
+**Format :** 3000x3000px minimum, PNG.
+
+---
+---
+
+# V5 — Direction "Absurde + Fanzine" (mars 2026) {#v5}
+
+> **Archivee.** Direction precedente, avant le pivot d'Olivier.
+> Les illustrations generees sont dans `images/used/`.
+> Gardee comme reference — ne pas supprimer.
+
+## Consignes globales V5
 
 ```
 Style: editorial illustration, bold flat colors, slightly rough edges,
 punk-pop aesthetic inspired by French fanzine Climax.
 Not realistic, not cartoon, not cute. Satirical, energetic, graphic.
-Transparent background. PNG with alpha channel.
+Black background. PNG with alpha channel.
 High contrast. Thick outlines where appropriate.
 No AI-slop: no purple gradients, no floating particles, no dreamy glow.
 ```
 
 ---
 
-## 1. Personnage central — Le consommateur submergé
+## 1. Personnage central
 
-**Usage :** Élément central de la cover, occupe ~60% de la hauteur.
+7 variantes generees. Toutes dans `images/used/`.
 
-### Prompt A — Femme submergée par des objets
+| Fichier | Prompt | Description |
+|---------|--------|-------------|
+| `fille-globe-dechets.png` | A | Femme tenant la Terre, dechets qui tombent |
+| `fille-porte-globe.png` | C | Femme portant le globe, penchee sous le poids |
+| `fille-ensevelie-achats.png` | A | Femme ensevelie sous sacs, colis, bouteilles |
+| `fille-noyee-objets.png` | B | Femme noyee dans une mer d'objets (vue plongeante) |
+| `fille-courses-frenetiques.png` | E | Femme aux bras charges, objets en equilibre |
+| `fille-entouree-colis.png` | F | Femme entouree de colis et paquets |
+| `chariot-surconsommation.png` | G | Homme poussant un caddie surcharge |
+
+<details>
+<summary>Prompts detailles (A-G)</summary>
+
+### Prompt A — Femme submergee par des objets
 
 ```
 Editorial illustration of a young woman seen from the waist up,
@@ -37,13 +285,13 @@ Style: bold flat illustration, thick black outlines, saturated colors
 like a French satirical fanzine cover. NOT cute, NOT minimalist.
 Energetic, slightly messy, graphic.
 
-Expression: raised eyebrow, slight smirk — "stupéfaction lucide".
+Expression: raised eyebrow, slight smirk — "stupefaction lucide".
 Not angry, not crying, not smiling. Bewildered.
 
-Transparent background. High resolution. PNG.
+Black background. High resolution. PNG.
 ```
 
-### Prompt B — Femme qui coule dans les objets (vue plongeante)
+### Prompt B — Vue plongeante, noyee dans les objets
 
 ```
 Editorial illustration, top-down view of a young woman lying on her back,
@@ -58,10 +306,10 @@ Style: bold flat illustration, thick outlines, saturated colors
 The composition should feel like looking into a pit of stuff.
 Chaotic but visually organized — the objects radiate outward from her face.
 
-Transparent background. High resolution. PNG.
+Black background. High resolution. PNG.
 ```
 
-### Prompt C — Femme portant la planète comme un sac de courses
+### Prompt C — Femme portant la planete
 
 ```
 Editorial illustration of a young woman carrying planet Earth
@@ -77,10 +325,10 @@ Style: bold flat editorial illustration, thick black outlines,
 saturated colors (sky blue, coral pink, yellow accents).
 Punk-pop, satirical, like a French fanzine cover.
 
-Transparent background. High resolution. PNG.
+Black background. High resolution. PNG.
 ```
 
-### Prompt D — Femme assise sur une montagne de déchets
+### Prompt D — Assise sur montagne de dechets
 
 ```
 Editorial illustration of a young woman sitting casually on top of
@@ -96,10 +344,10 @@ Style: bold flat illustration, thick outlines. Saturated colors —
 sky blue, coral pink, bright yellow. Punk-pop editorial, fanzine.
 The pile should feel monumental, not depressing. Absurd, not dystopian.
 
-Transparent background. High resolution. PNG.
+Black background. High resolution. PNG.
 ```
 
-### Prompt E — Femme avec des bras chargés (chaos)
+### Prompt E — Bras charges (chaos)
 
 ```
 Editorial illustration of a young woman trying to carry too many things
@@ -115,10 +363,10 @@ Style: bold flat editorial illustration, thick outlines, dynamic pose.
 Saturated colors (sky blue, coral pink, yellow).
 Punk-pop fanzine aesthetic. Energetic, not static.
 
-Transparent background. High resolution. PNG.
+Black background. High resolution. PNG.
 ```
 
-### Prompt F — Femme devant un mur de colis
+### Prompt F — Mur de colis
 
 ```
 Editorial illustration of a young woman standing in front of a giant
@@ -133,10 +381,10 @@ Style: bold flat illustration, thick outlines. Saturated colors.
 Punk-pop, editorial, fanzine aesthetic. NOT realistic.
 The scale disparity (small person / huge wall) is exaggerated.
 
-Transparent background. High resolution. PNG.
+Black background. High resolution. PNG.
 ```
 
-### Prompt G — Femme avec caddie qui déborde (vue de face)
+### Prompt G — Caddie qui deborde
 
 ```
 Editorial illustration of a person pushing an overflowing shopping cart.
@@ -148,19 +396,22 @@ Style: bold flat editorial illustration. Saturated colors (blues, pinks,
 yellows). Thick outlines. Punk-pop fanzine aesthetic. Slightly tilted
 composition for dynamic energy. NOT realistic, NOT 3D render.
 
-Transparent background. PNG.
+Black background. PNG.
 ```
+
+</details>
 
 ---
 
-## 2. Objets de consommation — Éléments de collage
+## 2. Elements de collage
 
-**Usage :** Éléments dispersés autour du personnage, style collage. Chaque objet séparément.
+<details>
+<summary>Objets, ticket, Terre, dechets, stickers, texture</summary>
 
-### Prompt — Pack d'objets de conso
+### Objets de consommation (pack de 8)
 
 ```
-Set of 8 separate consumer objects, each on its own transparent background,
+Set of 8 separate consumer objects, each on Black background,
 in bold flat editorial illustration style. Thick outlines, saturated colors,
 slightly rough/imperfect edges like cut-out magazine collage pieces.
 
@@ -174,167 +425,106 @@ Objects:
 7. A shopping bag stuffed to bursting
 8. A credit card bent/breaking
 
-Style: punk-pop, editorial, fanzine. Each object should feel like it was
-cut out of a magazine. Bold, graphic, NOT cute or minimalist.
-Colors: sky blue (#00B4F0), coral pink (#FF4D6A), bright yellow (#FFDC37),
-dark navy (#221C46) for outlines.
+Style: punk-pop, editorial, fanzine. Each object like a magazine cut-out.
+Colors: sky blue (#00B4F0), coral pink (#FF4D6A), yellow (#FFDC37),
+navy (#221C46) outlines.
 
-Each object on separate transparent background. PNG.
+Each object separate. Black background. PNG.
 ```
+
+### Ticket de caisse geant
+
+```
+Illustration of a giant supermarket receipt, slightly crumpled,
+long, curling at the bottom. Editorial illustration with realistic
+receipt texture but illustrated/graphic treatment. Yellowed paper,
+thermal print font.
+
+Text is NOT important (added in CSS). Just the visual of a long receipt
+with lines, a barcode at bottom, and a TOTAL line in red/pink.
+
+Style: cut-out collage piece, slight shadow, slightly tilted.
+Black background. PNG.
+```
+
+### La Terre comme produit (3 variantes)
+
+**A — Terre + code-barres :**
+```
+Planet Earth with a barcode stamped across it and a "-70%" price sticker.
+The Earth looks like a supermarket product — faded, scratched, handled too much.
+Flat editorial illustration, thick outlines. Pink price sticker.
+Black background. PNG.
+```
+
+**B — Terre dans un caddie :**
+```
+Planet Earth sitting inside a shopping cart, too big, overflowing.
+Cart dented, one wheel broken. Other consumer objects crammed around.
+Bold flat illustration, punk-pop fanzine. Satirical, not cute.
+Black background. PNG.
+```
+
+**C — Terre emballee sous plastique :**
+```
+Planet Earth wrapped in plastic shrink wrap like a supermarket product.
+Barcode label stuck on. Slightly compressed/deformed by wrapping.
+Bold editorial illustration, thick outlines, flat colors.
+Black background. PNG.
+```
+
+### Montagne de dechets
+
+```
+Massive mountain/pile of consumer waste: clothes, electronics, plastic,
+food packaging, shopping bags, broken toys, old smartphones.
+Taller than buildings.
+
+NOT depressing — saturated colors that pop (pinks, blues, yellows + grays).
+Absurd and overwhelming, not dark and dystopian.
+Fanzine/collage aesthetic, slightly chaotic.
+Small human figure at base for scale (optional).
+
+Black background. PNG.
+```
+
+### Stickers et tampons (pack de 6)
+
+```
+6 graphic sticker/stamp elements for a punk-pop fanzine:
+1. Rubber stamp "EPUISE" (SOLD OUT) — red ink
+2. Hand-drawn arrow pointing down with "2.9 TERRES"
+3. Crossed-out Earth symbol (no sign over planet)
+4. Torn price tag "TROP CHER"
+5. Circle stamp "MADE IN EXPLOITATION"
+6. Warning triangle + "SURCONSO"
+
+Hand-stamped, rough edges, imperfect ink, punk aesthetic.
+Colors: red, black, navy. Some yellow.
+Each separate. Black background. PNG.
+```
+
+### Fond texture (optionnel)
+
+```
+Subtle paper texture overlay — slightly grainy, recycled paper / newsprint.
+Very light, semi-transparent overlay on gradient background.
+Just texture/grain, NOT a solid color.
+Light gray on black background. PNG. 3000x3000px.
+```
+
+</details>
 
 ---
 
-## 3. Ticket de caisse géant
+## Assemblage (pour les deux directions)
 
-**Usage :** Élément central ou latéral de la cover V3-2.
+1. Detourer (fond transparent, pas de halo)
+2. Assembler en HTML/CSS (remplacer les emojis par les illustrations)
+3. Superposer sur le gradient (V6 = rose Piaf, V5 = bleu-rose)
+4. Titre Knewave + contour par-dessus
+5. Logo bleen discret en bas-droite
+6. Exporter 3000x3000 via `covers/generate.py`
 
-```
-Illustration of a giant supermarket receipt/ticket, slightly crumpled,
-with items listed. The receipt is long, curling at the bottom.
-Style: editorial illustration with realistic receipt texture but
-illustrated/graphic treatment. Slightly yellowed paper, thermal print font.
-
-The receipt shows consumer items with absurd environmental costs:
-- Text is NOT important (will be added in CSS), just the visual of
-  a long receipt with lines of text, a barcode at the bottom,
-  and a prominent TOTAL line in red/pink.
-
-Style: cut-out collage piece feel, slight shadow, slightly tilted.
-Transparent background. PNG.
-```
-
----
-
-## 4. La Terre comme produit
-
-**Usage :** Élément symbolique fort — la planète traitée comme un article de supermarché.
-
-### Prompt A — Terre avec code-barres
-
-```
-Editorial illustration of planet Earth with a barcode stamped across it
-and a price sticker that says "-70%". The Earth looks like a product
-on a supermarket shelf. Bold, graphic, satirical.
-
-Style: flat editorial illustration, thick outlines, bold colors.
-The Earth should look slightly worn/damaged — not pristine blue marble,
-but faded, scratched, like a product that's been handled too much.
-Pink price sticker, dark barcode lines.
-
-Transparent background. PNG.
-```
-
-### Prompt B — Terre dans un caddie
-
-```
-Editorial illustration of planet Earth sitting inside a shopping cart,
-too big for the cart, overflowing. The cart is dented, one wheel broken.
-Other small consumer objects are crammed around the Earth in the cart.
-
-Style: bold flat illustration, punk-pop fanzine. Satirical, not cute.
-Colors: blues, pinks, yellows on the objects. Earth in muted blue-green.
-Thick dark outlines.
-
-Transparent background. PNG.
-```
-
-### Prompt C — Terre emballée sous plastique
-
-```
-Editorial illustration of planet Earth wrapped in plastic shrink wrap,
-like a supermarket product. A barcode label stuck on the plastic.
-The Earth is slightly compressed/deformed by the wrapping.
-
-Style: bold editorial illustration, satirical, graphic.
-Thick outlines, flat colors with some texture.
-The plastic wrap should be visible — stretched, slightly reflective.
-
-Transparent background. PNG.
-```
-
----
-
-## 5. Montagne de déchets
-
-**Usage :** Arrière-plan ou élément de composition — les conséquences rendues visibles.
-
-```
-Editorial illustration of a massive mountain/pile of consumer waste:
-clothes, electronics, plastic bottles, food packaging, shopping bags,
-broken toys, old smartphones. The pile is taller than buildings.
-
-Style: bold flat editorial illustration. NOT depressing — the colors
-should be saturated and pop (pinks, blues, yellows mixed with grays).
-The pile should feel absurd and overwhelming, not dark and dystopian.
-Think fanzine/collage aesthetic, slightly chaotic composition.
-
-A small human figure at the base for scale (optional).
-
-Transparent background. PNG.
-```
-
----
-
-## 6. Éléments graphiques de collage
-
-**Usage :** Textures et éléments décoratifs pour renforcer l'esprit fanzine.
-
-### Prompt — Stickers et tampons
-
-```
-Set of 6 graphic sticker/stamp elements for a punk-pop fanzine about
-overconsumption, each on transparent background:
-
-1. A rubber stamp that says "SOLD OUT" (in French: "ÉPUISÉ") — red ink
-2. A hand-drawn arrow pointing down with "2.9 TERRES" written on it
-3. A crossed-out Earth symbol (like a "no" sign over the planet)
-4. A torn price tag with "TROP CHER" (too expensive) written on it
-5. A circle stamp saying "MADE IN EXPLOITATION"
-6. A warning triangle with an exclamation mark and "SURCONSO" text
-
-Style: hand-stamped, rough edges, imperfect ink, punk aesthetic.
-Colors: red, black, dark navy. Some in yellow.
-Each element separate, transparent background. PNG.
-```
-
----
-
-## 7. Fond texturé (optionnel)
-
-**Usage :** Overlay sur le gradient pour ajouter de la matière.
-
-```
-Subtle paper texture overlay — slightly grainy, like recycled paper
-or newsprint. Very light, meant to be used as a semi-transparent overlay
-on a gradient background.
-
-NOT a solid color. Just texture/grain.
-Light gray on transparent background. PNG. Large size (3000x3000px).
-```
-
----
-
-## Ordre de priorité pour la génération
-
-1. **Personnage central** (prompt 1A ou 1B) — c'est l'ancrage visuel
-2. **Terre comme produit** (prompt 4A, 4B ou 4C) — le symbole fort
-3. **Objets de conso** (prompt 2) — les éléments de collage
-4. **Stickers/tampons** (prompt 6) — l'esprit fanzine
-5. **Ticket de caisse** (prompt 3) — si on garde la direction V3-2
-6. **Montagne de déchets** (prompt 5) — si on veut montrer les conséquences
-7. **Texture papier** (prompt 7) — finition
-
----
-
-## Notes d'assemblage
-
-Une fois les éléments générés :
-- Les détourer proprement (fond transparent, pas de halo)
-- Les assembler dans la composition HTML/CSS existante (remplacer les emojis)
-- Superposer sur le gradient bleu-rose Bleen
-- Titre Knewave + tagline Caveat par-dessus
-- Logo bb + bleen en bas-droite
-- Exporter en 3000x3000 via `covers/generate.py`
-
-Les éléments doivent pouvoir être redimensionnés et repositionnés librement.
-Chaque élément doit fonctionner seul ET en composition.
+Les elements doivent pouvoir etre redimensionnes et repositionnes librement.
+Chaque element doit fonctionner seul ET en composition.

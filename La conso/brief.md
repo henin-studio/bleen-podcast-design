@@ -1,10 +1,37 @@
 # Podcast Conso — Brief créatif
 
-> Document de travail. Dernière mise à jour : 30 mars 2026.
+> Document de travail. Dernière mise à jour : 13 avril 2026.
 > Contient le feedback client (Olivier De Schutter, Bleen).
 
 ---
 
+## 0. Décisions en cours (avril 2026)
+
+**Noms préférés d'Olivier (top 4) :**
+1. La Vie en Sobre
+2. Juste Assez
+3. Zéro Superflu
+4. La Déconsommation
+
+Autres pistes : La Déconsommation pour les Nuls, Le Luxe du Moins, Convivialisme, Décroissance, Post-croissance, Post-abondance.
+
+**Direction visuelle V6 :**
+- Reprendre le **crop de la cover 11** (illustration croppée 250%, fragment visible, titre élégant)
+- Mais le personnage doit être **positif, souriant, "sexy"** — pas tristounet
+- "Make the transition sexy" — donner envie, pas déprimer
+- **Contour sur le titre** (comme LGD et Vélotaf) : `-webkit-text-stroke` + `paint-order: stroke fill`
+- Si "La Vie en Sobre" : **grosse touche de rose**, rappel subtil d'Édith Piaf dans la cover
+
+**Pivot audio :**
+- Direction précédente (Groove Lounge Engagé, synth-pop 110-125 BPM) → **abandonnée**
+- Nouvelle direction : **accordéon lo-fi, Yann Tiersen / Pomme**, craquements vinyle
+- Prompt Suno d'Olivier : "Jingle podcast 15 secondes. Accordéon minimaliste lo-fi, guitare fingerpicking, craquement vinyle léger. Ambiance chanson française contemporaine, doux et épuré, pas de batterie, pas de basse. Esprit Yann Tiersen / Pomme."
+- Si "La Vie en Sobre/Slow" : remix mélodie Piaf avec twist accordéon
+- Un MP3 Suno partagé par Olivier (à retrouver dans Slack)
+
+---
+
+### Notes précédentes (mars 2026)
 
 idée de titre  retenue: 
 Planet à crédit
@@ -15,19 +42,13 @@ Monde a vendre
 Assez
 Abondance zero
 
-
-le visuel pourrait aller vers plus sur les conséquences de la conso
-
-
-
 + jingle a trouver
 ( a détailler avec le naming/le visuel/titre)
 
- A écrire: la phrase d'intro/ les deux trois phrases
- 
- Consommer n'est pas juste achter
- consommer c'est aussi les conséquences
- Richesse (repartition)
+A écrire: la phrase d'intro/ les deux trois phrases
+Consommer n'est pas juste achter
+consommer c'est aussi les conséquences
+Richesse (repartition)
  
  
  
@@ -341,7 +362,9 @@ France : Latouche, Rabhi, Parrique, Gorz, Ellul, Servigne, Dion
 - [ ] **Assembler la cover finale** — remplacer les emojis par les illustrations générées
 - [ ] Trancher le nom définitif avec Olivier
 - [ ] Écrire la phrase d'intro définitive
-- [ ] Trouver le jingle (à détailler avec le naming/visuel/titre)
+- [x] Recherche audio / identité sonore (37 tracks + 9 SFX dans `audio/`, direction + références dans `AUDIO-IDENTITE-SONORE.md`)
+- [ ] Écouter les candidates et trier go / no-go
+- [ ] Sélectionner le jingle final (à détailler avec le naming/visuel/titre)
 - [ ] Créer les SVG du titre choisi
 - [ ] Décliner les formats réseaux sociaux
 - [ ] Définir le format des épisodes (durée, structure)
