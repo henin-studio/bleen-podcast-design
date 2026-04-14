@@ -140,7 +140,7 @@
   % Title — text layer (no PNG available yet in layers/)
   {\knewave\fontsize{64}{64}\selectfont\color{white}La Conso}\\[6pt]
   {\Large\color{white}\bfseries Cover Art — Design System}\\[4pt]
-  {\small\color{white!60}Version 1.0 — Mars 2026}\\[2pt]
+  {\small\color{white!60}Version 2.0 — Avril 2026}\\[2pt]
   {\small\color{white!40}Denis Henin — Graphiste Designer @ bleen}
 \end{center}
 
@@ -1195,11 +1195,197 @@ font-size: clamp(34px, 12vw, 56px);
 \end{itemize}
 \end{tcolorbox}
 
+\newpage
+
+% ═══════════════════════════════════════════
+% 14. ÉVOLUTION V4→V7 — SOBRE & SEXY
+% ═══════════════════════════════════════════
+
+\section{Évolution V4→V7 — Sobre \& Sexy}
+\sectionrule
+
+\begin{tcolorbox}[highlight card, title=Contexte — Avril 2026]
+Suite au feedback d'Olivier (avril 2026), la direction créative a pivoté. Les covers V1→V3 (absurde, bleu-rose, punk-pop) ont été mises de côté au profit d'une direction \textbf{``Sobre \& Sexy''} : donner envie sans déprimer, transition positive, personnage engagé et lumineux.
+
+\textbf{Verbatim Olivier :} ``Make the transition sexy.''
+\end{tcolorbox}
+
+\subsection{Nouveau feedback client}
+
+\begin{tcolorbox}[card]
+\rowcolors{2}{white}{tableRowAlt}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\tableheader Signal & Traduction créative \\
+\midrule
+``Make the transition sexy'' & L'esthétique doit séduire, pas alarmer. Sortir du registre ``conséquences'' \\
+Style cover 11 (crop) & Personnage recadré, gros plan, pas de full-body \\
+Contour titre LGD/Vélotaf & Knewave + text-stroke visible, cohérence famille podcasts \\
+4 noms préférés & La Vie en Sobre, Juste Assez, Zéro Superflu, La Déconsommation \\
+Rose dominant & Rappel Piaf (Édith), énergie française, chaleur \\
+\bottomrule
+\end{tabularx}
+\end{tcolorbox}
+
+\subsection{Nouveaux noms — shortlist}
+
+Les 4 noms retenus suivent une structure ``petit mot + gros mot'' pour le rythme oral et le traitement typographique :
+
+\begin{tcolorbox}[card]
+\rowcolors{2}{white}{tableRowAlt}
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+\tableheader Nom & Structure titre & Registre \\
+\midrule
+La Vie en Sobre & ``La Vie'' (petit) + ``en Sobre'' (gros) & Positif, aspiration, légèreté \\
+Juste Assez & ``Juste'' (fantôme) + ``Assez'' (massif) & Équilibre, affirmation calme \\
+Zéro Superflu & ``Zéro'' (petit) + ``Superflu'' (gros) & Direct, efficace, nettoyage \\
+La Déconsommation & ``La'' (mini) + ``Déconso/mmation'' (split) & Explicite, sérieux, politique \\
+\bottomrule
+\end{tabularx}
+\end{tcolorbox}
+
+\subsection{Nouvelle palette — ``Piaf''}
+
+La palette bleu-rose (sections 2--3) reste documentée comme base historique. La direction V6/V7 introduit une palette centrée sur le rose Piaf :
+
+\vspace{6pt}
+\noindent
+\colorswatch{consoPink}{Rose Piaf}{\#E8396B}\hspace{18pt}%
+\colorswatch{consoNavy}{Navy profond}{\#221C46}\hspace{18pt}%
+\colorswatch{consoYellow}{Jaune solaire}{\#FFDC37}
+
+\definecolor{consoPrune}{HTML}{8B2252}
+\definecolor{consoPruneNuit}{HTML}{2D1B2E}
+\definecolor{consoCreme}{HTML}{FFF5E1}
+\definecolor{consoRoseTendre}{HTML}{F7C8D0}
+\definecolor{consoPiafClair}{HTML}{FF6B8A}
+\definecolor{consoPiafMid}{HTML}{F2A0B0}
+
+\vspace{6pt}
+\noindent
+\colorswatch{consoPrune}{Bordeaux / Prune}{\#8B2252}\hspace{18pt}%
+\colorswatch{consoPruneNuit}{Prune nuit}{\#2D1B2E}\hspace{18pt}%
+\colorswatch{consoCreme}{Crème chaud}{\#FFF5E1}
+
+\vspace{6pt}
+\noindent
+\colorswatch{consoRoseTendre}{Rose tendre}{\#F7C8D0}\hspace{18pt}%
+\colorswatch{consoPiafClair}{Piaf clair}{\#FF6B8A}\hspace{18pt}%
+\colorswatch{consoPiafMid}{Piaf mid}{\#F2A0B0}
+
+\begin{tcolorbox}[card, title=Gradients V6/V7 les plus utilisés]
+\begin{itemize}[nosep]
+  \item \textbf{Rose Piaf triple} : \texttt{linear-gradient(135deg, \#E8396B, \#FF6B8A, \#F2A0B0)}
+  \item \textbf{Rose vers crème} : \texttt{linear-gradient(180deg, \#FFF5E1 0\%, \#F2A0B0 40\%, \#E8396B 100\%)}
+  \item \textbf{Bordeaux vers Piaf} : \texttt{linear-gradient(135deg, \#8B2252, \#E8396B)}
+  \item \textbf{Noir vers navy vers Piaf} : \texttt{linear-gradient(160deg, \#0A0A0A, \#221C46 60\%, \#E8396B 100\%)}
+  \item \textbf{Piaf vers solaire} : \texttt{linear-gradient(150deg, \#E8396B 0\%, \#FF4D6A 45\%, \#FFDC37 100\%)}
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Nouvelles illustrations}
+
+Deux sets d'illustrations ont été générés pour la direction V7 :
+
+\begin{tcolorbox}[card]
+\rowcolors{2}{white}{tableRowAlt}
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+\tableheader Set & Fichier & Description \\
+\midrule
+Illustration A & \texttt{v6-piaf-rose-beret.png} & Femme au béret, tenant une rose, entourée d'objets (livres, tasses, sacs). Format paysage 1254$\times$791. \\
+Illustration B & \texttt{v6-piaf-mariniere-titre.png} & Femme en marinière, mains levées/ouvertes, entourée de fleurs et objets. \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Illustrations V6 — poses variées}} \\
+Libération & \texttt{v6-liberation-bras-ouverts.png} & Bras ouverts, joie, énergie positive \\
+Paisible & \texttt{v6-paisible-yeux-fermes.png} & Yeux fermés, sourire serein \\
+Joyeuse & \texttt{v6-joyeuse-fond-rose.png} & Rire éclatant, fond rose \\
+Hoodie & \texttt{v6-souriante-hoodie-rose.png} & Sourire franc, hoodie rose \\
+Wave & \texttt{v6-joyeuse-wave-rose-jaune.png} & Wave joyeuse, objets autour \\
+Wave noire & \texttt{v6-joyeuse-wave-fond-noir.png} & Wave joyeuse, fond sombre \\
+\bottomrule
+\end{tabularx}
+\end{tcolorbox}
+
+\begin{tcolorbox}[card, colframe=consoYellow!50]
+\textbf{Évolution du style :} Les illustrations V1--V5 (punk-pop, absurde, ``conséquences'') ont laissé place à un personnage \textbf{positif, lumineux, engagé}. Le registre n'est plus la stupéfaction mais l'\textbf{aspiration} — donner envie d'une vie sobre et désirable.
+\end{tcolorbox}
+
+\subsection{Traitement typographique V6/V7}
+
+Le titre utilise Knewave avec un \textbf{contour visible} (text-stroke), cohérent avec les covers de La Grande Démission et Vélotaf.
+
+\begin{tcolorbox}[card, colback=consoNavy, coltext=white!90]
+\begin{verbatim}
+/* V6 — Contour noir (fond rose/clair) */
+font-family: 'Knewave', cursive;
+color: #FFFFFF / #FFF5E1;
+-webkit-text-stroke: 2-3px rgba(0,0,0,0.45);
+paint-order: stroke fill;
+text-shadow: -2px -2px 0 rgba(0,0,0,0.35),
+             2px -2px 0 rgba(0,0,0,0.35),
+             -2px 2px 0 rgba(0,0,0,0.35),
+             2px 2px 0 rgba(0,0,0,0.35),
+             0 4px 12px rgba(0,0,0,0.5);
+
+/* V7 — Contour coloré (plus subtil) */
+-webkit-text-stroke: 2-2.5px rgba(255,245,225,0.7);
+/* ou */ rgba(232,57,107,0.65);
+/* ou */ rgba(255,255,255,0.65);
+paint-order: stroke fill;
+\end{verbatim}
+\end{tcolorbox}
+
+\begin{tcolorbox}[card, title=Split ``petit mot + gros mot'']
+\begin{itemize}[nosep]
+  \item Le premier mot est plus petit (clamp 22--32px) et en couleur secondaire
+  \item Le deuxième mot est massif (clamp 38--68px) et en couleur dominante
+  \item Exemples : \textit{``La Vie''} petit $\rightarrow$ \textit{``en Sobre''} gros / \textit{``Juste''} fantôme $\rightarrow$ \textit{``Assez''} lumineux
+  \item Le rythme crée une hiérarchie visuelle lisible même en miniature Spotify
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Bilan — 66 propositions}
+
+\begin{tcolorbox}[card]
+\rowcolors{2}{white}{tableRowAlt}
+\begin{tabularx}{\textwidth}{@{}llrX@{}}
+\toprule
+\tableheader Version & Direction & Nb & Résumé \\
+\midrule
+V1 & Illustration classique & 1 & Template + dessin DCD centre \\
+V2 & Stat percutante & 1 & ``4\% des émissions mondiales'' \\
+V3 & Typographique & 1 & Texte seul, grand format \\
+V4 & Absurde + collage & 14 & Illustrations punk-pop, gradient bleu-rose \\
+V4b & Palettes radicales & 12 & Tests couleurs titre sur gradient \\
+V5 & Nouvelles covers & 5 & Planète à Crédit, Ça Déborde, Assez \\
+Palette & Palette de départ & 2 & Exploration chromatique \\
+V6 & Sobre \& Sexy & 12 & Feedback Olivier, contour titre, personnage positif \\
+V7 & Piaf (finalistes) & 6 & 2 illustrations $\times$ 3 noms, direction retenue \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Total}} & \textbf{66} & \\
+\bottomrule
+\end{tabularx}
+\end{tcolorbox}
+
+\subsection{Décision en attente — Avril 2026}
+
+\begin{tcolorbox}[card, colframe=consoYellow!50]
+\textbf{À valider avec Olivier :}
+\begin{itemize}[nosep]
+  \item Cover finale parmi les V7 (illustration A béret ou B marinière ?)
+  \item Nom définitif parmi les 4 retenus
+  \item Gradient de fond (Piaf triple, bordeaux, noir→Piaf, ou solaire ?)
+  \item Consolider le design system une fois la direction verrouillée
+\end{itemize}
+\end{tcolorbox}
+
 \vfill
 
 \begin{center}
 \begin{tikzpicture}
-  \shade[left color=consoBlue, right color=consoPink] (0,0) rectangle (\textwidth, 2pt);
+  \shade[left color=consoPink, right color=consoYellow] (0,0) rectangle (\textwidth, 2pt);
 \end{tikzpicture}\\[8pt]
 {\small\color{grayMid} Document généré le \today\ — Bleen Consulting}
 \end{center}
