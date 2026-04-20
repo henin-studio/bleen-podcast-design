@@ -1,7 +1,39 @@
 # 01 — Idéation & Naming
 
 > Process créatif pour le podcast Conso de Bleen.
-> Démarré le 30 mars 2026.
+> Démarré le 30 mars 2026. **Nom retenu : Deconsommation (avril 2026, fin de mois).**
+
+---
+
+## ✅ Décision finale — Avril 2026
+
+**Nom retenu : Deconsommation**
+
+Feedback Olivier (après réflexion de plusieurs jours sur les 4 noms préférés) :
+
+> « Je reviens sur les titres d'ailleurs après avoir dormis dessus qq jours... La vie en sobre, ça fait trop alcooliques anonymes en fait. À mon avis, on va partir sur Déconsommation. Ça reste ce qu'il y a de plus explicite. Et je pense que c'est le plus important pour un podcast. On peut apporter des éléments plus conceptuels dans le preroll ou la description de l'épisode. Par contre, je le garderai d'office sur une seule ligne. Et j'aime bien le rose mais faut pas que ça fasse trop girly non plus. [...] Mais j'ai peur qu'on soit trop genré : vélo et carrière pour les mecs et conso pour les femmes. »
+
+**Ce qu'on en retient :**
+
+| Contrainte | Impact créatif |
+|------------|----------------|
+| « Le plus explicite » | Pas de jeu de mots, pas d'allusion — le nom doit se comprendre sans contexte |
+| « Sur une seule ligne » | Traitement typo : Knewave, letter-spacing resserré, `white-space: nowrap` |
+| « Pas trop girly » | Le rose devient un **accent**, pas un fond. Navy/prune dominant |
+| « Risque de genre » | Éviter l'illustration Piaf (béret, marinière) — trop marquée féminine |
+| « Sobre est abandonné » | Plus de référence à "La Vie en Sobre" — registre AA perçu |
+
+**Direction visuelle retenue : V8-6 (Vieux rose — reprise V6-6)**
+
+Après exploration V8.01 (palette historique avec touches bleu/vert/jaune), le choix final revient sur le rose dominant assumé :
+
+- Fond : `linear-gradient(135deg, #C75B7A, #E8396B, #FF4D6A)` (vieux rose → rose Piaf → corail)
+- Illustration : `v6-joyeuse-fond-rose.png` (rire éclatant, fond rose cohérent)
+- Titre : "Deconsommation" en Knewave, crème `#FFF5E1`
+- Traitement titre : contour noir `rgba(0,0,0,0.45)` + text-shadow multi-directionnelle (style LGD/Vélotaf)
+- 1 ligne, letter-spacing `-0.015em`
+
+**Pourquoi ce choix** : le rose n'est plus perçu comme un risque de genre mais comme une signature solaire assumée. Cohérent avec Vélotaf (rouge-orange) et La Grande Démission (indigo-rouge) : chaque podcast de la famille a sa palette chaude signature.
 
 ---
 

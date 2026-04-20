@@ -33,11 +33,19 @@
 \setmonofont{Menlo}
 \newcommand{\knewave}{\fontspec{Marker Felt}}
 
-% ─── Colors ───
+% ─── Colors — V8-6 palette (avril 2026, finale) ───
+\definecolor{consoVieuxRose}{HTML}{C75B7A}  % Vieux rose (haut du gradient)
+\definecolor{consoPiaf}{HTML}{E8396B}       % Rose Piaf (coeur du gradient)
+\definecolor{consoCorail}{HTML}{FF4D6A}     % Corail (pied du gradient)
+\definecolor{consoCreme}{HTML}{FFF5E1}      % Creme chaud (couleur titre)
+\definecolor{consoNoir}{HTML}{0A0A0A}       % Noir (contour + text-shadow)
+\definecolor{consoNavy}{HTML}{221C46}       % Navy profond (historique + texte principal)
+\definecolor{consoPrune}{HTML}{3D1A3E}      % Prune (historique)
+\definecolor{consoBordeaux}{HTML}{8B2252}   % Bordeaux doux
+% Palette historique (reference)
 \definecolor{consoBlue}{HTML}{00B4F0}
 \definecolor{consoPink}{HTML}{FF4D6A}
 \definecolor{consoYellow}{HTML}{FFDC37}
-\definecolor{consoNavy}{HTML}{221C46}
 \definecolor{consoCoral}{HTML}{FF7375}
 \definecolor{consoGreen}{HTML}{2ECC71}
 \definecolor{consoText}{HTML}{221C46}
@@ -74,7 +82,7 @@
 \newcommand{\sectionrule}{%
   \vspace{4pt}%
   \noindent\begin{tikzpicture}
-    \shade[left color=consoBlue, right color=consoPink] (0,0) rectangle (\textwidth, 2.5pt);
+    \shade[left color=consoNavy, right color=consoPiaf] (0,0) rectangle (\textwidth, 2.5pt);
   \end{tikzpicture}%
   \vspace{6pt}%
 }
@@ -109,7 +117,7 @@
   },
   highlight card/.style={
     card,
-    borderline north={2pt}{0pt}{consoBlue!70!consoPink},
+    borderline north={2pt}{0pt}{consoNavy!70!consoPiaf},
   }
 }
 
@@ -126,38 +134,34 @@
 \thispagestyle{empty}
 
 \begin{tikzpicture}[remember picture, overlay]
-  % Background gradient
-  \shade[left color=consoBlue, right color=consoPink]
-    (current page.north west) rectangle ([yshift=-9cm]current page.north east);
-  % Dark bottom
+  % Background gradient — V8-6 (vieux rose -> rose Piaf -> corail)
+  \shade[top color=consoVieuxRose, middle color=consoPiaf, bottom color=consoCorail]
+    (current page.north west) rectangle ([yshift=-12cm]current page.north east);
   \fill[consoNavy]
-    ([yshift=-9cm]current page.north west) rectangle (current page.south east);
+    ([yshift=-12cm]current page.north west) rectangle (current page.south east);
 \end{tikzpicture}
 
 \vspace*{0.8cm}
 
 \begin{center}
-  % Title — text layer (no PNG available yet in layers/)
-  {\knewave\fontsize{64}{64}\selectfont\color{white}La Conso}\\[6pt]
-  {\Large\color{white}\bfseries Cover Art — Design System}\\[4pt]
-  {\small\color{white!60}Version 2.0 — Avril 2026}\\[2pt]
-  {\small\color{white!40}Denis Henin — Graphiste Designer @ bleen}
+  {\knewave\fontsize{54}{54}\selectfont\color{consoCreme}Deconsommation}\\[8pt]
+  {\Large\color{consoCreme}\bfseries Cover Art — Design System}\\[4pt]
+  {\small\color{consoCreme!70}Version 2.2 — Avril 2026}\\[2pt]
+  {\small\color{consoCreme!50}Denis Henin — Graphiste Designer @ bleen}
 \end{center}
 
-\vspace{0.4cm}
+\vspace{0.6cm}
 
 \begin{center}
-  \begin{tikzpicture}
-    \node[drop shadow={shadow xshift=1pt, shadow yshift=-2pt, opacity=0.3, fill=black}, inner sep=0pt] {%
-      \includegraphics[width=7.5cm]{../covers/cover-1-homo-consumens.png}%
-    };
-  \end{tikzpicture}
+  \begin{tcolorbox}[enhanced, colback=consoNoir, colframe=consoNoir, arc=3pt, width=6.5cm, halign=center, boxrule=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt]
+    {\small\color{consoCreme}\bfseries PISTE RETENUE — V8-6}
+  \end{tcolorbox}
 \end{center}
 
 \vfill
 
 \begin{center}
-  {\footnotesize\color{white!30}Cover « Homo Consumens » · 3000×3000px}
+  {\footnotesize\color{consoCreme!60}Vieux rose $\rightarrow$ rose Piaf $\rightarrow$ corail · Illustration « Joyeuse fond rose »\\[2pt]Titre Knewave 1 ligne · Contour noir + text-shadow (style LGD/Vélotaf)}
 \end{center}
 
 \newpage
@@ -182,7 +186,7 @@
 \toprule
 \tableheader Élément & Détail \\
 \midrule
-Nom de travail & La Conso (titre final à définir) \\
+Nom du podcast & \textbf{Deconsommation} (retenu avril 2026, feedback Olivier De Schutter) \\
 Tagline & « Toujours plus. Jamais assez. » \\
 Format & Podcast audio, format et durée à définir \\
 Producteur & Bleen Consulting (Bruxelles) / Bleen Agency (Paris) \\
@@ -190,7 +194,7 @@ Lien & S'inscrit dans la lignée de la Fresque de la Consommation \\
 Ton & Pédagogique, accessible, questionnement sans culpabilisation \\
 Audience & Francophones sensibles à la consommation responsable \\
 Thèmes & Consommation responsable, greenwashing, surconsommation, minimalisme, impacts environnementaux \\
-Univers visuel & Flat design, gradient bleu-rose, énergie pop \\
+Univers visuel & Illustration flat stylisée, gradient navy $\rightarrow$ prune $\rightarrow$ vieux rose, accent rose Piaf \\
 \bottomrule
 \end{tabularx}
 \end{tcolorbox}
@@ -230,39 +234,38 @@ L'objectif : donner des clés pour comprendre et consommer autrement. Pas de fin
 \section{Palette de couleurs}
 \sectionrule
 
-\subsection{Gradient de la cover}
+\subsection{Gradient de la cover — V8-6}
 
-Le fond utilise un \textbf{dégradé horizontal} (gauche $\rightarrow$ droite), bleu ciel vers rose corail. Frais, pop, moderne — distinct des palettes Vélotaf (rouge-orange) et La Grande Démission (indigo-rouge).
+Le fond utilise un \textbf{dégradé diagonal 135°} en trois étapes : vieux rose $\rightarrow$ rose Piaf $\rightarrow$ corail. Palette solaire, expressive, assumée féminine sans être mièvre — le ton est celui de la joie franche et de l'énergie. Cohérent avec la famille Bleen : Vélotaf (rouge-orange), La Grande Démission (indigo-rouge), Deconsommation (vieux rose $\rightarrow$ corail).
 
 \begin{tcolorbox}[card]
 \begin{center}
 \begin{tikzpicture}
-  \shade[left color=consoBlue, right color=consoPink] (0,0) rectangle (14,2.5);
-  \node[font=\small\bfseries, text=white, anchor=west] at (0.4, 1.8) {Bleu ciel};
-  \node[font=\tiny\ttfamily, text=white, anchor=west] at (0.4, 1.3) {\#00B4F0};
-  \node[font=\small\bfseries, text=white, anchor=east] at (13.6, 1.8) {Rose corail};
-  \node[font=\tiny\ttfamily, text=white, anchor=east] at (13.6, 1.3) {\#FF4D6A};
-  \draw[white, thick, ->] (3.5, 0.6) -- (10.5, 0.6);
-  \node[font=\tiny, text=white] at (7, 0.3) {linear-gradient(90deg)};
+  \shade[top color=consoVieuxRose, middle color=consoPiaf, bottom color=consoCorail] (0,0) rectangle (14,3);
+  \node[font=\small\bfseries, text=consoCreme, anchor=west] at (0.4, 2.5) {Vieux rose};
+  \node[font=\tiny\ttfamily, text=consoCreme, anchor=west] at (0.4, 2.1) {\#C75B7A};
+  \node[font=\small\bfseries, text=consoCreme, anchor=center] at (7, 1.5) {Rose Piaf \#E8396B};
+  \node[font=\small\bfseries, text=consoCreme, anchor=east] at (13.6, 0.5) {Corail \#FF4D6A};
 \end{tikzpicture}
 \end{center}
 \end{tcolorbox}
 
 \begin{verbatim}
-CSS: background: linear-gradient(90deg, #00B4F0, #FF4D6A);
+CSS: background: linear-gradient(135deg,
+       #C75B7A, #E8396B, #FF4D6A);
 \end{verbatim}
 
 \subsection{Couleurs principales}
 
 \noindent
-\colorswatch{consoBlue}{Bleu ciel}{\#00B4F0}\hspace{18pt}%
-\colorswatch{consoPink}{Rose corail}{\#FF4D6A}\hspace{18pt}%
-\colorswatch{consoYellow}{Jaune solaire}{\#FFDC37}
+\colorswatch{consoVieuxRose}{Vieux rose}{\#C75B7A}\hspace{18pt}%
+\colorswatch{consoPiaf}{Rose Piaf}{\#E8396B}\hspace{18pt}%
+\colorswatch{consoCorail}{Corail}{\#FF4D6A}
 
 \vspace{6pt}\noindent
-\colorswatch{consoNavy}{Navy profond}{\#221C46}\hspace{18pt}%
-\colorswatch{consoCoral}{Corail}{\#FF7375}\hspace{18pt}%
-\colorswatch{white}{Blanc}{\#FFFFFF}
+\colorswatch{consoCreme}{Creme chaud}{\#FFF5E1}\hspace{18pt}%
+\colorswatch{consoNoir}{Noir contour}{\#0A0A0A}\hspace{18pt}%
+\colorswatch{consoNavy}{Navy (historique)}{\#221C46}
 
 \subsection{Rôles des couleurs}
 
@@ -272,12 +275,12 @@ CSS: background: linear-gradient(90deg, #00B4F0, #FF4D6A);
 \toprule
 \tableheader Couleur & Hex & Usage \\
 \midrule
-Bleu ciel & \texttt{\#00B4F0} & Fond gauche du gradient, fraîcheur, questionnement \\
-Rose corail & \texttt{\#FF4D6A} & Fond droite du gradient, énergie, urgence douce \\
-Jaune solaire & \texttt{\#FFDC37} & Accents, titres sur fond sombre, highlighter \\
-Navy profond & \texttt{\#221C46} & Fond alternatif sombre, texte principal, header \\
-Corail & \texttt{\#FF7375} & Accent secondaire chaud, variante du rose \\
-Blanc & \texttt{\#FFFFFF} & Texte sur gradient, clarté \\
+Vieux rose & \texttt{\#C75B7A} & Haut du gradient, adoucit le départ \\
+Rose Piaf & \texttt{\#E8396B} & Cœur du gradient, dominant visuel, rappel Édith Piaf \\
+Corail & \texttt{\#FF4D6A} & Pied du gradient, chaleur, énergie pop \\
+Crème chaud & \texttt{\#FFF5E1} & Couleur du titre Knewave \\
+Noir (contour) & \texttt{\#0A0A0A} & Stroke + text-shadow du titre (style LGD/Vélotaf) \\
+Navy profond & \texttt{\#221C46} & Alternative fond sombre pour variantes, typo secondaire \\
 \bottomrule
 \end{tabularx}
 \end{tcolorbox}
@@ -286,20 +289,27 @@ Blanc & \texttt{\#FFFFFF} & Texte sur gradient, clarté \\
 
 \begin{tcolorbox}[highlight card, title=Ratio 60-30-10]
 \begin{itemize}[nosep]
-  \item \textbf{60\%} — Gradient bleu-rose (fond dominant)
-  \item \textbf{30\%} — Blanc pour la typographie et l'air
-  \item \textbf{10\%} — Accents (jaune solaire, navy, ou ombres)
+  \item \textbf{60\%} — Gradient vieux rose–Piaf–corail (fond dominant) + illustration
+  \item \textbf{30\%} — Crème \texttt{\#FFF5E1} pour la typographie
+  \item \textbf{10\%} — Noir \texttt{\#0A0A0A} en contour/ombre (garantit la lisibilité sur le rose)
 \end{itemize}
 \end{tcolorbox}
 
-\begin{tcolorbox}[card, title=Interdits, colframe=consoPink!30]
+\begin{tcolorbox}[card, title=Interdits, colframe=consoPiaf!30]
 \begin{itemize}[nosep]
-  \item Pas de gris moyen (\#888, \#999) — la palette est franche
+  \item Pas de gris moyen (\#888, \#999) — la palette est franche et chaleureuse
   \item Pas de pastels — saturation $>$ 30\%
-  \item Pas de noir pur (\#000000) — utiliser \texttt{\#221C46}
+  \item Pas de noir dominant — le noir est réservé au contour/ombre du titre
   \item Pas de vert saturé — éviter le cliché « écolo green »
-  \item Pas de violet saturé — LGD utilise déjà du lavande (\texttt{\#9B8EC4}), un violet fort créerait une confusion
+  \item Pas de bleu ciel — palette historique abandonnée
+  \item Pas de jaune solaire en dominant — réservé aux variantes secondaires
 \end{itemize}
+\end{tcolorbox}
+
+\subsection{Palette historique (v1 — abandonnée)}
+
+\begin{tcolorbox}[card]
+Palette bleue-rose-jaune initialement proposée (bleu \texttt{\#00B4F0}, rose \texttt{\#FF4D6A}, jaune \texttt{\#FFDC37}). Abandonnée après le feedback Olivier d'avril 2026. La palette V8-6 (vieux rose $\rightarrow$ rose Piaf $\rightarrow$ corail) remplace entièrement ces couleurs.
 \end{tcolorbox}
 
 \newpage
@@ -327,11 +337,16 @@ Corps & Plus Jakarta Sans Regular & Neutralité, confort & 14--18pt \\
 \end{tabularx}
 \end{tcolorbox}
 
-\subsection{Aperçu du titre sur la cover}
+\subsection{Aperçu du titre « Deconsommation » sur la cover}
 
 \begin{tcolorbox}[card]
 \begin{center}
-\includegraphics[width=0.75\linewidth]{../covers/cover-1-homo-consumens.png}
+\begin{tikzpicture}
+  \shade[top color=consoVieuxRose, middle color=consoPiaf, bottom color=consoCorail]
+    (0,0) rectangle (12,12);
+  \node[anchor=north, font=\knewave\Huge, text=consoCreme] at (6, 10.5) {Deconsommation};
+  \node[anchor=north, font=\tiny, text=consoCreme!85] at (6, 9.2) {1 ligne · Knewave · contour noir + text-shadow};
+\end{tikzpicture}
 \end{center}
 
 \vspace{6pt}
@@ -341,26 +356,31 @@ Corps & Plus Jakarta Sans Regular & Neutralité, confort & 14--18pt \\
 \toprule
 \textbf{Propriété} & \textbf{Valeur} \\
 \midrule
-Police titre & Knewave (Google Fonts) \\
-Style & Cursive / brush, majuscules \\
-Couleur titre & Blanc pur + jaune \texttt{\#FFDC37} pour « Consumens » \\
-Stroke & Contour noir semi-transparent (2px dans le card, $\sim$20px à 3000px) \\
-Ombre & Text-shadow noir multi-directionnel + glow \\
-Paint-order & \texttt{stroke fill} — le contour est peint sous le remplissage \\
+Mot titre & \textbf{Deconsommation} (1 seul mot, 1 ligne, contrainte Olivier) \\
+Police titre & Knewave (Google Fonts, cursive brush) \\
+Couleur titre & Crème chaud \texttt{\#FFF5E1} \\
+Stroke & Contour noir \texttt{rgba(0,0,0,0.45)} — 2px (écran) / 24px (3000px) \\
+Text-shadow & Ombre portée multi-directionnelle noire 35\% + glow noir 10px \\
+Paint-order & \texttt{stroke fill} \\
+Letter-spacing & $-0.015$em \\
+Taille écran & \texttt{clamp(22px, 8.2vw, 36px)} \\
+Padding horizontal & $2.5$\% de chaque côté du mot \\
+White-space & \texttt{nowrap} — interdit le passage à 2 lignes \\
 \bottomrule
 \end{tabularx}
 \end{tcolorbox}
 
 \subsection{Traitement du texte sur la cover}
 
-Mêmes principes que Vélotaf et La Grande Démission :
+Mêmes principes que Vélotaf et La Grande Démission, adaptés à la palette V8-6 :
 
 \begin{enumerate}[nosep]
-  \item \textbf{Remplissage} : blanc pur \texttt{\#FFFFFF} (titre principal) ou jaune \texttt{\#FFDC37} (accent)
-  \item \textbf{Contour (stroke)} : noir semi-transparent, épaisseur adaptée à la résolution
-  \item \textbf{Paint-order} : \texttt{stroke fill} — le contour est peint sous le remplissage
-  \item \textbf{Ombres} : text-shadow multi-directionnel pour lisibilité sur le gradient
-  \item \textbf{Tagline} : police Caveat (handwritten), blanc à 90\% d'opacité
+  \item \textbf{Remplissage} : crème \texttt{\#FFF5E1} — le titre reste lumineux sur le fond rose
+  \item \textbf{Contour (stroke)} : noir semi-transparent \texttt{rgba(0,0,0,0.45)} — découpe le titre sur l'illustration
+  \item \textbf{Paint-order} : \texttt{stroke fill} — contour peint sous le remplissage
+  \item \textbf{Text-shadow multi-directionnelle} : 4 ombres noires à $\pm$2px + glow noir 10px — garantit la lisibilité partout sur la cover
+  \item \textbf{Tagline optionnelle} : police Caveat (handwritten), crème à 90\% d'opacité
+  \item \textbf{Une seule ligne imperative} : letter-spacing négatif obligatoire sur « Deconsommation »
 \end{enumerate}
 
 \newpage
@@ -391,14 +411,14 @@ Perspective & Vue de face ou légère contre-plongée \\
 \end{tabularx}
 \end{tcolorbox}
 
-\subsection{Personnage : « Le fil rouge »}
+\subsection{Personnage : « Joyeuse, fond rose »}
 
 \begin{itemize}[nosep]
-  \item Femme tenant un fil rouge qui relie des objets de consommation
-  \item Objets reliés : café, sneakers, smartphone, courses
-  \item Symbolique : le fil rouge = le podcast qui décortique les liens entre habitudes de conso et impacts
-  \item Expression engagée, curieuse, en mouvement
-  \item Le personnage occupe $\sim$60\% de la hauteur de la cover
+  \item Jeune adulte, \textbf{rire éclatant} (bouche ouverte, yeux fermés de joie), allongé
+  \item Entourée d'une accumulation chromatique d'objets de consommation (sneakers, smartphones, tasses, vêtements), tous dans la palette rose–corail–crème
+  \item Symbolique : l'absurdité de l'accumulation, mais en mode joyeux et assumé — pas de moralisation
+  \item Expression solaire, contagieuse — le podcast qui donne envie, pas qui culpabilise
+  \item Cadrage serré : le visage occupe $\sim$30\% de la hauteur, le reste est rempli d'objets
 \end{itemize}
 
 \subsection{Fichier source}
@@ -409,12 +429,29 @@ Perspective & Vue de face ou légère contre-plongée \\
 \toprule
 \tableheader Fichier & Détail \\
 \midrule
-\texttt{filRouge.png} & Image source (fond transparent, RGBA) \\
-PSD & \texttt{images/filRouge.psd} \\
-Dimensions & 1024 × 1024 px \\
-Source & Illustration originale, détourée \\
-Placement & \texttt{width:95\%; left:-5\%; bottom:-8\%} (à l'échelle 3000px) \\
-Filtre & \texttt{drop-shadow(0 4px 12px rgba(0,0,0,0.3))} \\
+\texttt{v6-joyeuse-fond-rose.png} & Image source retenue (V8-6) \\
+Chemin & \texttt{images/used/v6/v6-joyeuse-fond-rose.png} \\
+Dimensions source & 600 × 371 px (à upscaler pour l'export 3000px) \\
+Placement CSS & \texttt{top:0; left:-2\%; width:140\%; height:140\%; object-fit:cover} \\
+Filtre & \texttt{drop-shadow(0 4px 16px rgba(0,0,0,0.3))} \\
+Overlay haut & Gradient vieux rose $\rightarrow$ transparent sur les 38\% supérieurs (lisibilité titre) \\
+\bottomrule
+\end{tabularx}
+\end{tcolorbox}
+
+\subsection{Alternatives disponibles}
+
+\begin{tcolorbox}[card]
+\rowcolors{2}{white}{tableRowAlt}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\tableheader Fichier & Usage \\
+\midrule
+\texttt{v6-souriante-hoodie-rose.png} & Sourire franc, hoodie rose (V8-4, V8-11) \\
+\texttt{v6-liberation-bras-ouverts.png} & Bras levés, fond noir (V8-1, V8-7 charbon, V8-8, V8.01-*) \\
+\texttt{v6-paisible-yeux-fermes.png} & Yeux fermés, sérénité (V8-3, V8-12) \\
+\texttt{v6-joyeuse-wave-rose-jaune.png} & Main levée, fond mixte (V8-2) \\
+\texttt{v6-joyeuse-wave-fond-noir.png} & Main levée, fond noir (V8-5, V8-9) \\
 \bottomrule
 \end{tabularx}
 \end{tcolorbox}
@@ -423,9 +460,9 @@ Filtre & \texttt{drop-shadow(0 4px 12px rgba(0,0,0,0.3))} \\
 
 Avant intégration dans la cover :
 \begin{itemize}[nosep]
-  \item Détourage propre (fond transparent, pas de halo blanc)
-  \item Vérification des détails (doigts, objets, proportions)
-  \item Cohérence chromatique avec la palette bleu-rose
+  \item Vérifier l'absence de halo ou aliasing sur le pourtour du personnage
+  \item Préserver la saturation d'origine — la cohérence rose/corail de l'illustration supporte le gradient V8-6
+  \item Assurer que le rire est bien centré dans le tiers médian vertical (zone lisible)
 \end{itemize}
 
 \newpage
@@ -443,7 +480,7 @@ Avant intégration dans la cover :
 \begin{center}
 \begin{tikzpicture}[scale=0.55]
   % Cover frame
-  \shade[left color=consoBlue, right color=consoPink] (0,0) rectangle (14,14);
+  \shade[top color=consoNavy, middle color=consoPrune, bottom color=consoVieuxRose] (0,0) rectangle (14,14);
   \draw[white, thick] (0,0) rectangle (14,14);
 
   % Vignette overlay
@@ -491,7 +528,7 @@ Chaque cover est exportée en calques séparés (3000×3000px PNG) :
 \toprule
 \tableheader Calque & Fichier & Contenu & Taille \\
 \midrule
-Background & \texttt{cover-*-bg.png} & Gradient bleu-rose + vignette & $\sim$1.5 MB \\
+Background & \texttt{cover-*-bg.png} & Gradient navy $\rightarrow$ prune $\rightarrow$ vieux rose + vignette & $\sim$1.5 MB \\
 Personnage & \texttt{cover-*-character.png} & Illustration, fond transparent & $\sim$1.8 MB \\
 Texte & \texttt{cover-*-text.png} & Titre + tagline, fond transparent & $\sim$500 KB \\
 Logo & \texttt{cover-*-logo.png} & B bleen, fond transparent & $\sim$70 KB \\
@@ -566,7 +603,7 @@ Hauteur symbole / hauteur texte & 280/140 = 2.0 (le symbole fait 2$\times$ la ha
 
 \begin{itemize}[nosep]
   \item Même traitement que Vélotaf/LGD : icône + texte, bas-droite
-  \item Ombre portée pour lisibilité sur le gradient bleu-rose
+  \item Ombre portée pour lisibilité sur le gradient vieux rose–Piaf–corail
   \item Zone d'ombre sombre derrière le logo (\texttt{radial-gradient(ellipse at 100\% 100\%, rgba(0,0,0,0.35), transparent 70\%)})
 \end{itemize}
 
@@ -651,7 +688,7 @@ Export & Script Python \texttt{covers/generate.py} (Playwright + Pillow) \\
 \begin{tcolorbox}[card, colback=consoNavy, coltitle=white, coltext=white!90]
 \begin{verbatim}
 /* Gradient de fond */
-background: linear-gradient(90deg, #00B4F0, #FF4D6A);
+background: linear-gradient(170deg, #221C46 0%, #3D1A3E 55%, #C75B7A 100%);
 
 /* Vignette overlay */
 background: radial-gradient(ellipse 90% 90% at 50% 50%,
@@ -714,7 +751,7 @@ Miniature YouTube & 1280 × 720 & Personnage + titre épisode en gros \\
 \begin{multicols}{2}
 \begin{tcolorbox}[card, title={\color{bleenGreen!80!black}Do's}, colframe=bleenGreen!30, borderline north={2pt}{0pt}{bleenGreen}]
 \begin{itemize}[nosep, leftmargin=16pt]
-  \doitem{Fond gradient bleu-rose comme élément dominant}
+  \doitem{Fond gradient vieux rose–Piaf–corail comme élément dominant}
   \doitem{Typo Knewave uniquement pour le titre principal}
   \doitem{Décliner l'illustration dans le même style flat}
   \doitem{Garder le contraste blanc/jaune sur gradient}
@@ -816,7 +853,7 @@ Référence apportée par Denis (kashermkens.nl/objectus/) : des objets du quoti
 \begin{tcolorbox}[card, title={\color{consoPink}Non transférable}, colframe=consoPink!30, borderline north={2pt}{0pt}{consoPink}]
 \begin{itemize}[nosep, leftmargin=12pt]
   \dontitem{Esthétique sombre, photographique, muséale}
-  \dontitem{Noir dominant (la palette Conso est bleu-rose)}
+  \dontitem{Noir dominant (la palette Deconsommation est vieux rose–Piaf–corail)}
   \dontitem{Rendu réaliste / stop-motion}
 \end{itemize}
 \end{tcolorbox}
@@ -852,7 +889,7 @@ Référence apportée par Olivier. Climax (\texttt{climaxfanzine.fr}) est un fan
 
 \begin{tcolorbox}[card, title={\color{consoPink}Points de divergence}, colframe=consoPink!30, borderline north={2pt}{0pt}{consoPink}]
 \begin{itemize}[nosep, leftmargin=12pt]
-  \dontitem{Climax n'a pas de charte couleur fixe (nous oui : bleu-rose)}
+  \dontitem{Climax n'a pas de charte couleur fixe (nous oui : vieux rose–Piaf–corail)}
   \dontitem{Leur typo varie d'un numéro à l'autre (nous : Knewave fixe)}
   \dontitem{Format fanzine papier $\neq$ cover podcast carré}
   \dontitem{Leur densité visuelle (pages pleines) est trop chargée pour une miniature Spotify}
@@ -1198,16 +1235,20 @@ font-size: clamp(34px, 12vw, 56px);
 \newpage
 
 % ═══════════════════════════════════════════
-% 14. ÉVOLUTION V4→V7 — SOBRE & SEXY
+% 14. ÉVOLUTION V4 -> V8 — SOBRE & SEXY -> DECONSOMMATION
 % ═══════════════════════════════════════════
 
-\section{Évolution V4→V7 — Sobre \& Sexy}
+\section{Évolution V4 $\rightarrow$ V8 — Sobre \& Sexy $\rightarrow$ Deconsommation}
 \sectionrule
 
-\begin{tcolorbox}[highlight card, title=Contexte — Avril 2026]
-Suite au feedback d'Olivier (avril 2026), la direction créative a pivoté. Les covers V1→V3 (absurde, bleu-rose, punk-pop) ont été mises de côté au profit d'une direction \textbf{``Sobre \& Sexy''} : donner envie sans déprimer, transition positive, personnage engagé et lumineux.
+\begin{tcolorbox}[highlight card, title=Contexte — Historique des pivots]
+Cette section documente les pivots successifs qui ont mené à la direction V8-6 retenue.
 
-\textbf{Verbatim Olivier :} ``Make the transition sexy.''
+\textbf{Pivot 1 (avril 2026, mi-mois)} — Les covers V1$\rightarrow$V3 (absurde, bleu-rose, punk-pop) sont mises de côté au profit d'une direction \textbf{``Sobre \& Sexy''}. Verbatim Olivier : ``Make the transition sexy.''
+
+\textbf{Pivot 2 (avril 2026, fin de mois)} — Après réflexion, ``La Vie en Sobre'' est abandonné (``trop alcooliques anonymes''). Le titre retenu devient \textbf{Deconsommation} — plus explicite, essentiel pour un podcast. Contrainte : \textbf{une seule ligne}.
+
+\textbf{Pivot 3 (choix final)} — Sur la base de V8.01 (tests palette historique), la direction finale revient vers le rose dominant avec V8-6 : gradient vieux rose $\rightarrow$ rose Piaf $\rightarrow$ corail, illustration « Joyeuse fond rose » (rire éclatant). Le rose n'est plus perçu comme un risque de genre, mais comme une signature solaire assumée — cohérent avec Vélotaf (rouge-orange) et La Grande Démission (indigo-rouge).
 \end{tcolorbox}
 
 \subsection{Nouveau feedback client}
@@ -1221,8 +1262,9 @@ Suite au feedback d'Olivier (avril 2026), la direction créative a pivoté. Les 
 ``Make the transition sexy'' & L'esthétique doit séduire, pas alarmer. Sortir du registre ``conséquences'' \\
 Style cover 11 (crop) & Personnage recadré, gros plan, pas de full-body \\
 Contour titre LGD/Vélotaf & Knewave + text-stroke visible, cohérence famille podcasts \\
-4 noms préférés & La Vie en Sobre, Juste Assez, Zéro Superflu, La Déconsommation \\
-Rose dominant & Rappel Piaf (Édith), énergie française, chaleur \\
+4 noms préférés (avril mi-mois) & La Vie en Sobre, Juste Assez, Zéro Superflu, La Déconsommation \\
+Nom final (avril fin) & \textbf{Deconsommation} seul, sur une ligne \\
+Rose dominant $\rightarrow$ accent & Risque de genre (``trop girly'') : le rose devient un accent, pas le fond \\
 \bottomrule
 \end{tabularx}
 \end{tcolorbox}
@@ -1245,33 +1287,24 @@ La Déconsommation & ``La'' (mini) + ``Déconso/mmation'' (split) & Explicite, s
 \end{tabularx}
 \end{tcolorbox}
 
-\subsection{Nouvelle palette — ``Piaf''}
+\subsection{Évolution de la palette V6 $\rightarrow$ V7 $\rightarrow$ V8-6}
 
-La palette bleu-rose (sections 2--3) reste documentée comme base historique. La direction V6/V7 introduit une palette centrée sur le rose Piaf :
+La palette ``Piaf'' a été introduite en V6/V7 (rose dominant). Le pivot V8 la rééquilibre : le rose Piaf reste présent mais comme \textbf{accent} — le fond devient un dégradé navy/prune/vieux rose qui évite la perception genrée.
 
-\vspace{6pt}
-\noindent
-\colorswatch{consoPink}{Rose Piaf}{\#E8396B}\hspace{18pt}%
-\colorswatch{consoNavy}{Navy profond}{\#221C46}\hspace{18pt}%
-\colorswatch{consoYellow}{Jaune solaire}{\#FFDC37}
-
-\definecolor{consoPrune}{HTML}{8B2252}
 \definecolor{consoPruneNuit}{HTML}{2D1B2E}
-\definecolor{consoCreme}{HTML}{FFF5E1}
 \definecolor{consoRoseTendre}{HTML}{F7C8D0}
 \definecolor{consoPiafClair}{HTML}{FF6B8A}
 \definecolor{consoPiafMid}{HTML}{F2A0B0}
 
-\vspace{6pt}
-\noindent
-\colorswatch{consoPrune}{Bordeaux / Prune}{\#8B2252}\hspace{18pt}%
-\colorswatch{consoPruneNuit}{Prune nuit}{\#2D1B2E}\hspace{18pt}%
-\colorswatch{consoCreme}{Crème chaud}{\#FFF5E1}
+\vspace{6pt}\noindent\textit{Accents complémentaires disponibles}
 
 \vspace{6pt}
 \noindent
+\colorswatch{consoPruneNuit}{Prune nuit}{\#2D1B2E}\hspace{18pt}%
 \colorswatch{consoRoseTendre}{Rose tendre}{\#F7C8D0}\hspace{18pt}%
-\colorswatch{consoPiafClair}{Piaf clair}{\#FF6B8A}\hspace{18pt}%
+\colorswatch{consoPiafClair}{Piaf clair}{\#FF6B8A}
+
+\vspace{6pt}\noindent
 \colorswatch{consoPiafMid}{Piaf mid}{\#F2A0B0}
 
 \begin{tcolorbox}[card, title=Gradients V6/V7 les plus utilisés]
@@ -1376,7 +1409,7 @@ V7 & Piaf (finalistes) & 6 & 2 illustrations $\times$ 3 noms, direction retenue 
 \begin{itemize}[nosep]
   \item Cover finale parmi les V7 (illustration A béret ou B marinière ?)
   \item Nom définitif parmi les 4 retenus
-  \item Gradient de fond (Piaf triple, bordeaux, noir→Piaf, ou solaire ?)
+  \item Gradient de fond (Piaf triple, bordeaux, noir $\rightarrow$ Piaf, ou solaire ?)
   \item Consolider le design system une fois la direction verrouillée
 \end{itemize}
 \end{tcolorbox}
